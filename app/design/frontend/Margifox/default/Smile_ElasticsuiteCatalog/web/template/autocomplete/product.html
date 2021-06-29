@@ -1,0 +1,20 @@
+<dd class="<%- data.row_class %> container-pro" id="qs-option-<%- data.index %>" role="option" class="product-item" href="<%- data.url %>">
+    <div class="product-image-box">
+        <img width="64px" height="64px" src="<%- data.image %>">
+    </div>
+    <div class="product-shop product-item">
+        <div class="f-fix">
+            <div class="display-brand">
+                <span class="brand" name="<%= data.brand %>"><%= data.brand %></span>
+            </div>
+            <div class="product-primary"><div class="product-name"><%= data.title %></div></div>
+            <div class="product-secondary">
+                <div class="price-box">
+                    <span class="price"><%= data.price %></span>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</dd>

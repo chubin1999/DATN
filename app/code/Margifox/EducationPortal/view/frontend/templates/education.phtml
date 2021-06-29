@@ -1,0 +1,65 @@
+<?php
+/**
+ * @var \Margifox\EducationPortal\Block\Education $block
+ *  * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php
+$collection = $block->getCollection();
+$brands = $block->getBrands();
+$param = $this->getRequest()->getParam('brand');
+?>
+<?php if (!empty($brands)) : ?>
+    <div class="education-tab">
+        <ul>
+            <li class="<?= !$param ? 'active' : '' ?>">
+                <a href="<?= $this->getUrl('*/*/*', ['_forced_secure' => true, '_use_rewrite' => true]) ?>">
+                    <?= $block->escapeHtml(__('All Brands')) ?>
+                </a>
+            </li>
+            <?php foreach ($brands as $brand) : ?>
+                <li class="<?= $param == $brand['value'] ? 'active' : '' ?>">
+                    <a href="<?= $this->getUrl('*/*/*', ['_forced_secure' => true, 'brand' => $brand['value']]) . '' ?>">
+                        <?= $block->escapeHtml($brand['label']) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
+<?php if ($collection->count()) : ?>
+    <div class="education-list">
+        <?php foreach ($collection as $item) : ?>
+            <div class="education-item">
+                <div class="education-item-video">
+                    <iframe src="<?= $block->escapeUrl($item->getVideo()) ?>"
+                            title="<?= $block->escapeHtml($item->getName()) ?>" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="education-item-details">
+                    <strong class="education-item-name"><?= $block->escapeHtml($item->getName()) ?></strong>
+                    <p class="education-item-description"><?= $block->escapeHtml($item->getDescription()) ?></p>
+                    <?php if ($item->getPdf()) : ?>
+                        <a href="<?= $block->getDocumentUrl($item->getPdf()) ?>"><?= $block->escapeHtml(__("Download documents")) ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="education-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty">
+        <div><?= $escaper->escapeHtml(__('We can\'t find education matching the selection.')) ?></div>
+    </div>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Margifox_EducationPortal/js/education-portal": {}
+        }
+    }
+</script>

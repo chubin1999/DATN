@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <brand_reward>
+            <spending_level>
+                <points_earned_per>
+                    {"_1622495545814_814":{"brand":"1","copper":"1","bronze":"2","silver":"3","gold":"4","platinum":"5"},"_1622495571337_337":{"brand":"2","copper":"1","bronze":"2","silver":"3","gold":"4","platinum":"5"}}                </points_earned_per>
+                <points_to_redeem>
+                    {"_1622495578318_318":{"brand":"1","value":"100"},"_1622495581724_724":{"brand":"2","value":"100"}}
+                </points_to_redeem>
+                <min_sales_per_year>
+                {"_1622495586475_475":{"brand":"1","copper":"1","bronze":"12000","silver":"20400","gold":"32400","platinum":"45000"},"_1622495587238_238":{"brand":"2","copper":"1","bronze":"12000","silver":"21600","gold":"37800","platinum":"54000"}}
+                </min_sales_per_year>
+                <min_sales_per_month>
+                    {"_1622495646813_813":{"brand":"1","copper":"1","bronze":"1000","silver":"1700","gold":"2700","platinum":"3750"},"_1622495649078_78":{"brand":"2","copper":"1","bronze":"1000","silver":"1800","gold":"3150","platinum":"4500"}}
+                </min_sales_per_month>
+                <promotional_allocation>
+                    {"_1622495669336_336":{"brand":"1","copper":"0","bronze":"3","silver":"5","gold":"7.5","platinum":"10"},"_1622495670257_257":{"brand":"2","copper":"0","bronze":"3","silver":"5","gold":"7.5","platinum":"10"}}
+                </promotional_allocation>
+            </spending_level>
+        </brand_reward>
+    </default>
+</config>

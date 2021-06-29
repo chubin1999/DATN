@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="company_loyalty" sortOrder="70">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Loyalty</label>
+            <dataScope>company_loyalty</dataScope>
+        </settings>
+
+        <htmlContent name="html_title_balances">
+            <block class="Magento\Framework\View\Element\Template" name="title_balances" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Balances</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="loyalty_listing">
+            <settings>
+                <externalProvider>loyalty_listing.loyalty_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>loyalty_listing</dataScope>
+                <ns>loyalty_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+
+        <htmlContent name="html_title_loyalty_earning">
+            <block class="Magento\Framework\View\Element\Template" name="title_loyalty_earning" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Earning History</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="loyalty_earning_history_listing">
+            <settings>
+                <externalProvider>loyalty_earning_history_listing.loyalty_earning_history_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>loyalty_earning_history_listing</dataScope>
+                <ns>loyalty_earning_history_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+
+        <htmlContent name="html_title_loyalty_redeeming">
+            <block class="Magento\Framework\View\Element\Template" name="title_loyalty_redeeming" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Redeeming History</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="loyalty_redeeming_history_listing">
+            <settings>
+                <externalProvider>loyalty_redeeming_history_listing.loyalty_redeeming_history_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>loyalty_redeeming_history_listing</dataScope>
+                <ns>loyalty_redeeming_history_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+    </fieldset>
+    <fieldset name="company_promo_allocation" sortOrder="80">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Promo Allocations</label>
+            <dataScope>company_promo_allocations</dataScope>
+        </settings>
+
+        <htmlContent name="html_title_balances_promo">
+            <block class="Magento\Framework\View\Element\Template" name="title_balances_promo" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Balances</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="promo_allocations_listing">
+            <settings>
+                <externalProvider>promo_allocations_listing.promo_allocations_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>promo_allocations_listing</dataScope>
+                <ns>promo_allocations_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+
+        <htmlContent name="html_title_promo_allocations_earning">
+            <block class="Magento\Framework\View\Element\Template" name="title_promo_allocations_earning" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Earning History</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="promo_allocations_earning_history_listing">
+            <settings>
+                <externalProvider>promo_allocations_earning_history_listing.promo_allocations_earning_history_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>promo_allocations_earning_history_listing</dataScope>
+                <ns>promo_allocations_earning_history_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+
+        <htmlContent name="html_title_promo_allocations_redeeming">
+            <block class="Magento\Framework\View\Element\Template" name="title_promo_allocations_redeeming" template="Margifox_BrandRewardUi::title.phtml">
+                <arguments>
+                    <argument name="title_name" xsi:type="string">Redeeming History</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+
+        <insertListing name="promo_allocations_redeeming_history_listing">
+            <settings>
+                <externalProvider>promo_allocations_redeeming_history_listing.promo_allocations_redeeming_history_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <dataScope>promo_allocations_redeeming_history_listing</dataScope>
+                <ns>promo_allocations_redeeming_history_listing</ns>
+                <exports>
+                    <link name="company_id">${ $.externalProvider }:params.company_id</link>
+                </exports>
+                <imports>
+                    <link name="company_id">${ $.provider }:data.id</link>
+                </imports>
+            </settings>
+        </insertListing>
+    </fieldset>
+</form>

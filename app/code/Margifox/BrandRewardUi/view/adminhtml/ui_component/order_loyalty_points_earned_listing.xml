@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">order_loyalty_points_earned_listing.order_loyalty_points_earned_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>order_loyalty_points_earned_listing_columns</spinner>
+        <deps>
+            <dep>order_loyalty_points_earned_listing.order_loyalty_points_earned_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="order_loyalty_points_earned_listing_data_source" component="Margifox_BrandRewardUi/js/grid/provider">
+        <settings>
+            <filterUrlParams>
+                <param name="order_id">*</param>
+            </filterUrlParams>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Company::index</aclResource>
+        <dataProvider class="Margifox\BrandRewardUi\Ui\Component\Sales\OrderLoyaltyPointsEarnedDataProvider" name="order_loyalty_points_earned_listing_data_source">
+            <settings>
+                <requestFieldName>order_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="order_loyalty_points_earned_listing_columns">
+        <column name="entity_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Redemption Id</label>
+            </settings>
+        </column>
+        <column name="brand">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Brand</label>
+            </settings>
+        </column>
+        <column name="points_earned">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Points Earned</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

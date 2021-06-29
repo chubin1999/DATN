@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="25px" viewBox="0 0 28 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>FF835055-2CB4-41B0-ADA0-2E7A473A18A1</title>
+    <g id="Style-Guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="styleguide_v01" transform="translate(-163.000000, -1772.000000)">
+            <g id="Icons" transform="translate(100.000000, 1773.000000)">
+                <g id="shopping-cart-black" transform="translate(64.000000, 0.000000)">
+                    <circle id="Oval" fill="#181818" cx="10.2857143" cy="22.2857143" r="1.71428571"></circle>
+                    <circle id="Oval" fill="#181818" cx="21.4285714" cy="22.2857143" r="1.71428571"></circle>
+                    <path d="M0,0 L4.67532468,0 L7.80779221,15.3028571 C8.02839386,16.3888361 9.0133059,17.1640713 10.1454545,17.1428571 L21.5064935,17.1428571 C22.6386421,17.1640713 23.6235542,16.3888361 23.8441558,15.3028571 L25.7142857,5.71428571 L5.84415584,5.71428571" id="Path" stroke="#181818" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

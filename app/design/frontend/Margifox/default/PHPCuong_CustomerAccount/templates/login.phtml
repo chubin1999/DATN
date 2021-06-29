@@ -1,0 +1,109 @@
+<?php
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_CustomerAccount
+ * @copyright   Copyright (c) 2018-2019 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+ /** @var \PHPCuong\CustomerAccount\Block\Form\Login $block */
+?>
+<?php if (!$block->customerIsAlreadyLoggedIn()): ?>
+    <style>
+        .customer-popup-login {
+            display: none;
+        }
+        .or-another-selection {
+            display: inline-block;
+            padding-right: 5px;
+        }
+        @media(max-width: 767px) {
+            .or-another-selection {
+                display: block;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+    <div id="customer-popup-login" class="customer-popup-login">
+        <div class="image">
+            <img src="<?php echo $this->getViewFileUrl('PHPCuong_CustomerAccount::images/login_popuo.jpeg'); ?>" alt="" class="image-popup"/>
+        </div>
+        <div class="block block-customer-login">
+            <h1><?php /* @escapeNotVerified */ echo __('Welcome back') ?></h1>
+            <div class="block-content" aria-labelledby="block-customer-popup-login-heading">
+                <form class="form form-login"
+                      action="<?php /* @escapeNotVerified */ echo $block->getPostActionUrl() ?>"
+                      method="post"
+                      id="customer-popup-login-form"
+                      data-mage-init='{"validation":{}}'>
+                    <?php echo $block->getBlockHtml('formkey'); ?>
+                    <input type="hidden" name="redirect_url" value="<?php echo $this->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]); ?>" />
+                    <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+                        <div class="messages"></div>
+                        <div class="field email required">
+                            <div class="control">
+                                <input name="username" value="<?= $block->escapeHtmlAttr($block->getUsername()) ?>"
+                                    <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?>
+                                    id="email" type="email" class="input-text"
+                                    title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                                    data-mage-init='{"mage/trim-input":{}}'
+                                    data-validate="{required:true, 'validate-email':true}" placeholder=" ">
+                                <label class="label" for="email"><span><?= $block->escapeHtml(__('Email address *')) ?></span></label>
+                            </div>
+                        </div>
+                        <div class="field password required">
+                            <div class="control">
+                                <input name="password" type="password" data-validate="{required:true}" placeholder=" " >
+                                <label for="pass" class="label"><span><?= $block->escapeHtml(__('Password *')) ?></span></label>
+                            </div>
+                        </div>
+                        <div class="field choice required">
+                            <input type="checkbox" id="checkbox" data-validate="{required:true}" required placeholder=" "/>
+                            <label for="checkbox" class="label">
+                                <span class="term-login"><?= $block->escapeHtml(__('I accept the ')) ?><a href="<?php echo $this->getUrl('privacy-terms') ;?>"><?= $block->escapeHtml(__('terms and conditions.')) ?></a></span>
+                            </label>
+                        </div>
+                        <?= $block->getChildHtml('form_additional_info') ?>
+                        <div class="actions-toolbar">
+                            <div class="primary"><button type="submit" class="action login primary group1" name="send" id="send2"><span><?= $block->escapeHtml(__('Sign In')) ?></span></button></div>
+                            <div class="secondary">
+                                <a class="action remind" href="<?php echo $this->getUrl('customer/account/forgotpassword/') ;?>">
+                                    <span><?= $block->escapeHtml(__('Forgotten your password?')) ?></span>
+                                </a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="you-can">
+                <p class="text-you-can">or you can</p>
+            </div>
+            <div class="secondary">
+                <a href="<?php echo $this->getUrl('become-a-stockist');?>" class="action create primary register-become-popup"><?= $block->escapeHtml(__('Register and become a stockist')) ?></a>
+            </div>
+        </div>
+        <script type="text/x-magento-init">
+            {
+                "#customer-popup-login": {
+                    "PHPCuong_CustomerAccount/js/action/customer-authentication-popup": {
+                        "popupTitle": "",
+                        "innerWidth": "400"
+                    }
+                }
+            }
+        </script>
+    </div>
+<?php endif; ?>

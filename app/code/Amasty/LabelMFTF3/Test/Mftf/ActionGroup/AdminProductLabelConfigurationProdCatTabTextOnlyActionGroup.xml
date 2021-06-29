@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup">
+        <arguments>
+            <argument name="product_label2"/>
+            <argument name="product_label3"/>
+        </arguments>
+        <click selector="{{AdminProductLabelProfileSection.LabelOptionsTab(product_label3.TabIdentifier)}}"
+               stepKey="clickOnProdCatTab1"/>
+        <click selector="{{AdminProductLabelProfileSection.LabelTypeRadiobutton(product_label3.Identifier,product_label2.LabelTypeRadiobutton)}}"
+               stepKey="clickOnLabelType1"/>
+        <click selector="{{AdminProductLabelProfileSection.LabelPositionSelect(product_label3.Identifier,product_label2.LabelPositionHorSelect,product_label2.LabelPositionVerSelect)}}"
+               stepKey="clickOnLabelPosition1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelTextField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelTextField}}"
+                   stepKey="setLabelText1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.TextColorField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.TextColorField}}"
+                   stepKey="setTextColor1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.TextSizeField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.TextSizeField}}"
+                   stepKey="setTextSize1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.AdvancedSettingsCSSField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.AdvancedSettingsCSSField}}"
+                   stepKey="setAdvancedSettingsCSSField1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave2"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex2"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache2"/>
+    </actionGroup>
+
+</actionGroups>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Fooman_Surcharge:etc/surcharge.xsd">
+    <types>
+        <payment>
+            <label>Payment Surcharge</label>
+            <instance>Fooman\SurchargePayment\Model\PaymentType</instance>
+            <tab>Fooman\SurchargePayment\Block\PaymentTab</tab>
+        </payment>
+    </types>
+</config>

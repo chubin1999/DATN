@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add action="educationportal/portal/index" id="Margifox_EducationPortal::educationportal_portal" module="Margifox_EducationPortal" resource="Margifox_EducationPortal::Portal" sortOrder="22" title="Education Portal"/>
+	</menu>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="Education Portal Table" engine="innodb" name="education_portal" resource="default">
+		<column comment="Id" identity="true" name="id" nullable="false" padding="6" unsigned="false" xsi:type="smallint"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="id"/>
+		</constraint>
+		<column name="name" nullable="true" length="255" xsi:type="varchar"/>
+		<column name="description" nullable="true" xsi:type="text"/>
+		<column name="video" nullable="true" xsi:type="text"/>
+        <column name="pdf" nullable="true" length="255" xsi:type="varchar"/>
+        <column name="brand" nullable="true" length="255" xsi:type="varchar"/>
+        <column name="status" nullable="true" xsi:type="boolean"/>
+	</table>
+</schema>

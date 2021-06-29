@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+
+    <test name="StorefrontProductLabelCreationPDPDisabledTest" extends="StorefrontProductLabelCreationPDPTest">
+
+        <annotations>
+            <features value="Amasty Product Labels"/>
+            <stories value="Product Label creation and application"/>
+            <title value="Product Label creation and application checking"/>
+            <description
+                    value="Check that Product Label is created and disabled correctly and don't applied on products on PDP"/>
+            <severity value="MAJOR"/>
+            <testCaseId value="PRODLAB-4"/>
+            <group value="Amasty"/>
+            <group value="ProdLab"/>
+            <group value="ProdLabSmoke"/>
+        </annotations>
+
+        <before>
+            <actionGroup ref="AdminProductLabelConfigurationGeneralTabActionGroup"
+                         stepKey="createProductLabel1">
+                <argument name="product_label" value="ProductLabelDisabled"/>
+            </actionGroup>
+        </before>
+
+        <comment
+                userInput="Navigate to Product Detail Page. Check that Product Label isn't displayed on  Product Detail Page"
+                stepKey="testActivitiesComment"/>
+
+        <dontSeeElement
+                selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+                stepKey="seeProductLabels1"/>
+        <dontSeeElement
+                selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+                stepKey="seeProductLabels2"/>
+
+    </test>
+</tests>
+

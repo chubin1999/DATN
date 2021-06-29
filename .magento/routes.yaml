@@ -1,0 +1,26 @@
+# Redirect previous domains
+https://environ.margifox.com.au/:
+    type: redirect
+    to: "https://www.margifox.com.au/"
+
+https://janeiredale.margifox.com.au/:
+    type: redirect
+    to: "https://www.margifox.com.au/"
+
+# Redirect HTTP to HTTPS
+http://{default}/:
+    type: redirect
+    to: "https://{default}/"
+
+http://{all}/:
+    type: redirect
+    to: "https://{all}/"
+
+# Handle routes
+https://{default}/:
+    type: upstream
+    upstream: "mymagento:http"
+
+https://{all}/:
+    type: upstream
+    upstream: "mymagento:http"

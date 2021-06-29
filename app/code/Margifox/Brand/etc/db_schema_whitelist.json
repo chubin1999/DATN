@@ -1,0 +1,18 @@
+{
+    "brand": {
+        "column": {
+            "entity_id": true,
+            "name": true,
+            "points_lifetime": true,
+            "attribute_option_link_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "company": {
+        "column": {
+            "brand": true
+        }
+    }
+}

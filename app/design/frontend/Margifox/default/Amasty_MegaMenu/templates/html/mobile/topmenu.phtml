@@ -1,0 +1,92 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+/** @var \Amasty\MegaMenu\Block\Html\Topmenu $block */
+
+?>
+<?php if (!$block->isHamburgerEnabled()): ?>
+<section class="ammenu-menu-wrapper -mobile"
+         data-ammenu-js="mobile-menu">
+    <div class="mobile-top-block">  
+        <div class="login-register-mobile">
+        </div>
+        <?php               
+        echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('top-mobile-menu')->toHtml(); 
+        ?>  
+    </div>
+    <nav class="ammenu-main-container" data-ammenu-js="tab-content">
+        <ul class="ammenu-items" data-ammenu-js="menu-items">
+            <?php
+            foreach ($block->getMainNodes() as $mainNode):
+                if (!$block->isNeedDisplay($mainNode->getId(), $mainNode->getStatus(), $block::MOBILE_VIEW)) {
+                    continue;
+                }
+
+                $add_class = '';
+
+                if(array_key_exists('add_menu_login', $mainNode->getData())) {
+                        if($mainNode->getData('add_menu_login') == 1) {
+                            $add_class = 'login-show';
+                        }
+                }
+
+                if(array_key_exists('add_menu_login', $mainNode->getData())) {
+                        if($mainNode->getData('add_menu_login') == 0) {
+                            $add_class = 'logout-show';
+                        }
+                }
+
+                $url = $mainNode->getUrl() ?: '#';
+                $mainNodeContent = $block->getContent($mainNode);
+                ?>
+                <li class="ammenu-item category-item -main <?= $block->escapeHtml($mainNode->getPositionClass()); ?> <?= $add_class; ?>" data-ammenu-js="item">
+                    <a href="<?= $block->escapeUrl($url); ?>"
+                       class="ammenu-link -main<?= ($mainNodeContent) ? ' -parent' : '' ?>
+                       <?= /* @noEscape */ $block->getHighLightClass($mainNode); ?>">
+                        <span class="ammenu-wrapper"><?= $block->escapeHtml($mainNode->getName()); ?></span>
+                    </a>
+                    <?php if ($mainNodeContent): ?>
+                        <div class="ammenu-submenu-container ammenu-submenu" data-ammenu-js="collapse-content">
+                            <?= /* @noEscape */ $mainNodeContent; ?>
+                        </div>
+                        <div class="ammenu-toggle" data-ammenu-js="collapse-trigger">
+                            <span class="ammenu-icon" data-ammenu-js="collapse-indicator"></span>
+                        </div>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+            <div class="live-chat login" style="display: none;">
+                <div class="livechat">
+                    <span><img src='<?php echo $this->getViewFileUrl('images/chatt.png'); ?>' alt="Demo"></span>
+                    <a id="click-to-chat__cta--text" onclick="window.HubSpotConversations.widget.open();" class="black-link">Live chat</a>
+                </div>
+                <div class="asset">
+                    <a href="https://margifox.imagerelay.com/">Image Relay</a>
+                </div>
+                <div class="contact">
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <div class="button-stock">
+        <a href="/become-a-stockist">
+            <span>Become a stockist</span>
+        </a>
+    </div>
+    <div class="live-chat">
+        <div class="livechat">
+            <span><img src='<?php echo $this->getViewFileUrl('images/chatt.png'); ?>' alt="Demo"></span>
+            <a id="click-to-chat__cta--text" onclick="window.HubSpotConversations.widget.open();" class="black-link">Live chat</a>
+        </div>
+        <div class="contact">
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+</section>
+<?php endif; ?>

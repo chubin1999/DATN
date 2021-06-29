@@ -1,0 +1,15 @@
+<div class="payment-option opc-payment-additional loyalty-promo-allocation" id="promo_allocation" data-bind="visible: isAvailable()">
+    <h3 data-bind="i18n: 'Promo Allocation'">Promo Allocation</h3>
+    <!-- ko foreach: { data: brands, as: 'brand' } -->
+    <div class="payment-option-content field choice">
+        <div class="payment-option-inner">
+            <span class="brand-label" data-bind="text: brand.label"></span> - <span data-bind="text: brand.available_amount"></span>
+        </div>
+
+        <div class="brand-reward-selector">
+            <input type="checkbox" value="0"  data-bind="attr: { id: brand.id, name: 'promo_allocation[' + brand.id + '].brand' }, checked: brand.isChecked">
+            <label data-bind="text: brand.useText, attr: { for: brand.id }, click: $parent.useRewardPoints.bind(brand)"></label>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>

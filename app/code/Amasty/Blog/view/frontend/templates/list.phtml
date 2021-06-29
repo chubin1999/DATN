@@ -1,0 +1,85 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Blog
+ */
+?>
+<?php
+/** @var \Amasty\Blog\Block\Content\Lists $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$collection = $block->getCollection();
+?>
+
+<div class="amblog-container-list">
+    <?= $block->getChildHtml('additional') ?>
+    <?php if ($collection && $collection->getSize()): ?>
+        <?php foreach ($collection as $post): ?>
+            <div class="amblog-post-container">
+                <div class="amblog-wrapper">
+                    <?php $imageSrc = $post->getListThumbnailSrc(); ?>
+                    <?php if ($imageSrc): ?>
+                        <a href="<?= $escaper->escapeUrl($post->getUrl()); ?>"
+                           title="<?= $escaper->escapeHtml($post->getTitle()); ?>">
+                            <img src="<?= $escaper->escapeUrl($imageSrc); ?>"
+                                 class="amblog-image"
+                                 alt="<?= $escaper->escapeHtml($post->getThumbnailAlt()); ?>" />
+                        </a>
+                    <?php endif; ?>
+                </div>
+                <div class="amblog-tags">
+                    <?= $block->getTagsHtml($post); ?>
+                </div>
+                <div class="amblog-content">
+                    <h2 class="amblog-title">
+                        <a href="<?= $escaper->escapeUrl($post->getUrl()); ?>"
+                           class="amblog-headline"
+                           title=" <?= $escaper->escapeHtml($post->getTitle()); ?>"
+                        >
+                            <?= $escaper->escapeHtml($post->getTitle()); ?>
+                        </a>
+                    </h2>
+                    <div class="amblog-shot">
+                        <?= /* @noEscape */ $post->getShortContent(); ?>
+                    </div>
+                    <div class="amblog-bottom">
+                        <div class="amblog-date">
+                            <?=  $escaper->escapeHtml($block->renderDate($post->getPublishedAt())); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="amblog-footer">
+                    <div class="amblog-features">
+                        <?= $block->getCategoriesHtml($post); ?>
+                        <?= $block->getAuthorHtml($post); ?>
+                        <?= $block->getShortCommentsHtml($post); ?>
+                        <?= $block->getAuthorPostsHtml($post); ?>
+                    </div>
+                    <div class="amblog-more">
+                        <a class="amblog-read"
+                           href="<?= $escaper->escapeUrl($block->getReadMoreUrl($post)); ?>"
+                           title="<?= $escaper->escapeHtml(__("Read More")); ?>">
+                            <?= $escaper->escapeHtml(__("Read More")); ?>
+                            <span class="amblog-arrow"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?= $block->getToolbarHtml(); ?>
+    <?php else: ?>
+        <div class="message notice">
+            <div><?= $escaper->escapeHtml(__('There are no posts yet.')); ?></div>
+        </div>
+    <?php endif; ?>
+</div>
+<div class="amblog-overlay" data-amblog-js="overlay"></div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+         "amBlogAccord": {}
+    }
+}
+</script>

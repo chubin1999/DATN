@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php
+    $search = $this->getRequest()->getParam('q');
+?>
+<?php if ($search) : ?>
+    <div class="search-message message notice" style="display: none;">
+        <span><?= $block->escapeHtml(__("No exact results found for: '%1'. The displayed items are the closest matches.", $search)) ?></span>
+    </div>
+<?php endif; ?>

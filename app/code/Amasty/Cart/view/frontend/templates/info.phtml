@@ -1,0 +1,62 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Cart
+ */
+?>
+<?php
+    /** @var \Amasty\Cart\Block\Config $block */
+    $helper = $block->getHelper();
+?>
+
+<?php if ($helper->isShowProductQty()): ?>
+    <script type="text/x-magento-init">
+        <?= /* @noEscape */
+        $helper->encode(
+            [
+                "[data-block=\"minicart\"]" => [
+                    'Amasty_Cart/js/amcartinfo' => [
+                        'infoMessage' => $block->escapeHtml($helper->getInfoMessage()),
+                        'section' => 'cart'
+                    ]
+                ]
+            ]
+        );
+        ?>
+    </script>
+
+    <?php if ($helper->isRequestQuoteEnabled()): ?>
+        <script type="text/x-magento-init">
+            <?= /* @noEscape */
+            $helper->encode(
+                [
+                    "[data-block=\"quotecart\"]" => [
+                        'Amasty_Cart/js/amcartinfo' => [
+                            'infoMessage' => $block->escapeHtml($helper->getInfoMessageForQuote()),
+                            'section' => 'quotecart'
+                        ]
+                    ]
+                ]
+            );
+            ?>
+        </script>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($helper->isActionsAjax()): ?>
+    <script type="text/x-magento-init">
+        <?= /* @noEscape */
+        $helper->encode(
+            [
+                "body" => [
+                    'Amasty_Cart/js/dataPostAjax' => [
+                        'amcartParams' => $helper->jsParam($block),
+                        'postTrigger' => $block->getDataPostSelector()
+                    ]
+                ]
+            ]
+        );
+        ?>
+    </script>
+<?php endif; ?>

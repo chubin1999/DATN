@@ -1,0 +1,14 @@
+<?php /** @var \Fooman\Surcharge\Block\Adminhtml\Sales\Order\Creditmemo\Totals\Create $block */ ?>
+<?php $totalsInfo = $block->getFoomanTotalsInfo(); ?>
+<?php foreach ($totalsInfo as $totalInfo): ?>
+<tr>
+    <td class="label"><?= $block->escapeHtml($totalInfo['label']) ?><div id="surcharge"></div></td>
+    <td>
+        <input type="text"
+               name="creditmemo[fooman_surcharge][<?= $block->escapeHtml($totalInfo['type_id']) ?>]"
+               value="<?= $block->escapeHtml($totalInfo['value']) ?>"
+               class="input-text admin__control-text"
+               id="fooman_surcharge" />
+    </td>
+</tr>
+<?php endforeach; ?>

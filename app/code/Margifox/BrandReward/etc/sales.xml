@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Sales:etc/sales.xsd">
+    <section name="quote">
+        <group name="totals">
+            <item name="brand_reward" instance="Margifox\BrandReward\Model\Total\Quote\Reward" sort_order="1500">
+                <renderer name="frontend" instance="Magento\Reward\Block\Checkout\Total"/>
+            </item>
+        </group>
+    </section>
+</config>

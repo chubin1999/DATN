@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Margifox\Brand\Api\Data\BrandInterface" type="Margifox\Brand\Model\Brand"/>
+    <preference for="Margifox\Brand\Api\BrandRepositoryInterface" type="Margifox\Brand\Model\Brand\Repository"/>
+    <preference for="Margifox\Brand\Api\Data\BrandSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>

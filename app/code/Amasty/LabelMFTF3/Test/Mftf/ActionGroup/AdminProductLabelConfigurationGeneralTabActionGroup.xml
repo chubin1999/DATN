@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationGeneralTabActionGroup">
+        <arguments>
+            <argument name="product_label"/>
+        </arguments>
+        <amOnPage url="{{AdminProductLabelProfilePage.url('new')}}" stepKey="navigateToProductLabelCreationPage1"/>
+        <waitForPageLoad stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.NameField}}"
+                   userInput="{{product_label.NameField}}"
+                   stepKey="setProductLabelName1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.StatusSwitcher}}"
+                      userInput="{{product_label.StatusSwitcher}}"
+                      stepKey="selectLabelStatus1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.PriorityField}}"
+                   userInput="{{product_label.PriorityField}}"
+                   stepKey="setPriority1"/>
+        <selectOption
+                selector="{{AdminProductLabelProfileSection.HideIfHigherPriorityLabelIsAppliedSwitcher}}"
+                userInput="{{product_label.HideIfHigherPriorityLabelIsAppliedSwitcher}}"
+                stepKey="selectHideIfHigherPriorityLabelIsApplied1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.UseForParentSwitcher}}"
+                      userInput="{{product_label.UseForParentSwitcher}}"
+                      stepKey="selectUseForParent1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.StoreMultiSelect}}"
+                      userInput="{{product_label.StoreMultiSelect}}"
+                      stepKey="selectStore1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave1"/>
+        <waitForPageLoad stepKey="waitForPageLoad2"/>
+        <grabFromCurrentUrl regex="~/id/(\d+)/~" stepKey="grabFromCurrentUrl1"/>
+        <setCookie userInput="setProductLabelIDInCookie" value="{$grabFromCurrentUrl1}"
+                   stepKey="setProductLabelIDInCookie1"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex1"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache1"/>
+    </actionGroup>
+
+</actionGroups>

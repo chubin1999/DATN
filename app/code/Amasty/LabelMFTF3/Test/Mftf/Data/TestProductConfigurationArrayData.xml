@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+
+    <entity name="ConfProdA1ChildSimProductA1" type="LblsTestProduct">
+        <data key="name">Test Simple Product A1</data>
+        <data key="sku" unique="suffix">Sku</data>
+        <data key="type_id">simple</data>
+        <data key="attribute_set_id">4</data>
+        <data key="visibility">1</data>
+        <data key="price">55</data>
+        <requiredEntity type="product_extension_attribute">StockStatusAndPosition</requiredEntity>
+        <requiredEntity type="custom_attribute">AttributeOption</requiredEntity>
+    </entity>
+    <entity name="ConfProdA1ChildSimProductA2" type="LblsTestProduct" extends="ConfProdA1ChildSimProductA1">
+        <data key="name">Test Simple Product A2</data>
+        <data key="price">77</data>
+    </entity>
+    <entity name="TestSimpleProductB1" type="LblsTestProduct" extends="ConfProdA1ChildSimProductA1">
+        <data key="name">Test Simple Product B1</data>
+        <data key="price">22</data>
+        <data key="visibility">4</data>
+    </entity>
+    <entity name="TestSimpleProductB2" type="LblsTestProduct" extends="ConfProdA1ChildSimProductA1">
+        <data key="name">Test Simple Product B2</data>
+        <data key="price">44</data>
+        <data key="visibility">4</data>
+    </entity>
+
+    <entity name="StockStatusAndPosition" type="product_extension_attribute">
+        <requiredEntity type="stock_item">Qty_100</requiredEntity>
+        <requiredEntity type="category_links">Prod_Pos</requiredEntity>
+    </entity>
+
+    <entity name="Qty_100" type="stock_item">
+        <data key="qty">100</data>
+        <data key="is_in_stock">true</data>
+    </entity>
+
+    <entity name="Prod_Pos" type="category_links">
+        <data key="position">2</data>
+        <var key="category_id" entityType="LblsTestCategory" entityKey="id"/>
+    </entity>
+
+    <entity name="AttributeOption" type="custom_attribute">
+        <var key="attribute_code" entityKey="attribute_code" entityType="ProductAttribute"/>
+        <var key="value" entityKey="value" entityType="ProductAttributeOption"/>
+    </entity>
+
+</entities>

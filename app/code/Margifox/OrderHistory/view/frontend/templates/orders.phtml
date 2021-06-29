@@ -1,0 +1,35 @@
+<?php
+/**
+ * @var \Margifox\OrderHistory\Block\OrderHistory $block
+ */
+?>
+<?php
+$orders = $block->getOrderHistory();
+?>
+<?php if (!empty($orders)) : ?>
+    <div class="order-history-title">
+        <h3><?= $block->escapeHtml(__('Order history')) ?></h3>
+        <a href="<?= $block->escapeUrl($this->getUrl('sales/order/history')) ?>"><?= $block->escapeHtml(__('View all')) ?></a>
+        <div class="dropdown-icon"></div>
+    </div>
+    <div class="orders-list" id="orders-list" data-bind="scope:'orders_component'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "#orders-list": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                            "orders_component": {
+                                "component": "Margifox_OrderHistory/js/renderer"
+                            }
+                         }
+                    }
+                }
+            }
+
+        </script>
+        <div class="view-all-orders btn-button">
+            <a href="<?= $block->escapeUrl($this->getUrl('sales/order/history')) ?>"><?= $block->escapeHtml(__('View all orders')) ?></a>
+        </div>
+    </div>
+<?php endif; ?>

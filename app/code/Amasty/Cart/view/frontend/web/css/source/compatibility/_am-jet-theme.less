@@ -1,0 +1,104 @@
+//
+//  JetTheme compatibility
+//  ____________________________________
+
+//
+//  Import
+//  ------------------------------------
+
+@import '../module/_mixins';
+
+//
+//  Common
+//  ------------------------------------
+
+& when (@media-common = true) {
+    .amasty-jet-theme .amcart-minipage-wrap {
+        .swatch-opt .swatch-attribute-selected-option {
+            padding-left: 5px;
+        }
+
+        .swatch-attribute > .swatch-attribute-options {
+            margin-top: 10px;
+        }
+
+        .ampage-top-info > .am-price {
+            &,
+            & .price {
+                font-weight: inherit;
+                font-size: inherit;
+            }
+
+            .old-price .price {
+                line-height: 2.6rem;
+            }
+        }
+
+        .price,
+        .price-wrapper {
+            .am-flex(none, center, wrap);
+
+            flex-basis: 100%;
+        }
+
+        .price-including-tax + .price-excluding-tax,
+        .weee[data-label] {
+            .am-flex(none, center, wrap);
+
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .product-image-container {
+            &:extend(.product-item .product-image-container);
+        }
+
+        .product-image-wrapper {
+            &:extend(.product-item .product-image-wrapper);
+        }
+
+        .product-image-photo {
+            &:extend(.product-item .product-image-photo);
+        }
+    }
+
+    .amcart-confirm-block .products-grid .product-item-info {
+        & {
+            padding: 0;
+            border: 0;
+            box-shadow: none;
+        }
+
+        &:after {
+            content: none;
+        }
+
+        .price-box .price {
+            font-size: 1.4rem;
+        }
+
+        .price-including-tax + .price-excluding-tax:before {
+            margin-left: 0;
+        }
+
+        .tocart {
+            font-size: 1.3rem;
+        }
+
+        .am-actions-wrapper {
+            & {
+                padding: 0;
+            }
+
+            .action {
+                position: initial;
+                bottom: auto;
+                box-sizing: border-box;
+                padding: 0;
+                min-height: auto;
+                border: 0;
+                border-radius: 0;
+            }
+        }
+    }
+}

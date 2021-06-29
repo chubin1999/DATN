@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationGeneralTabActionGroup">
+        <arguments>
+            <argument name="product_label"/>
+        </arguments>
+        <amOnPage url="{{AdminProductLabelProfilePage.url('new')}}" stepKey="navigateToProductLabelCreationPage1"/>
+        <waitForPageLoad stepKey="waitForPageLoad1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.NameField}}"
+                   userInput="{{product_label.NameField}}"
+                   stepKey="setProductLabelName1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.StatusSwitcher}}"
+                      userInput="{{product_label.StatusSwitcher}}"
+                      stepKey="selectLabelStatus1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.PriorityField}}"
+                   userInput="{{product_label.PriorityField}}"
+                   stepKey="setPriority1"/>
+        <selectOption
+                selector="{{AdminProductLabelProfileSection.HideIfHigherPriorityLabelIsAppliedSwitcher}}"
+                userInput="{{product_label.HideIfHigherPriorityLabelIsAppliedSwitcher}}"
+                stepKey="selectHideIfHigherPriorityLabelIsApplied1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.UseForParentSwitcher}}"
+                      userInput="{{product_label.UseForParentSwitcher}}"
+                      stepKey="selectUseForParent1"/>
+        <selectOption selector="{{AdminProductLabelProfileSection.StoreMultiSelect}}"
+                      userInput="{{product_label.StoreMultiSelect}}"
+                      stepKey="selectStore1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave1"/>
+        <waitForPageLoad stepKey="waitForPageLoad2"/>
+        <grabFromCurrentUrl regex="~/id/(\d+)/~" stepKey="grabFromCurrentUrl1"/>
+        <setCookie userInput="setProductLabelIDInCookie" value="{$grabFromCurrentUrl1}"
+                   stepKey="setProductLabelIDInCookie1"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex1"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache1"/>
+    </actionGroup>
+
+    <actionGroup name="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup">
+        <arguments>
+            <argument name="product_label2"/>
+            <argument name="product_label3"/>
+        </arguments>
+        <click selector="{{AdminProductLabelProfileSection.LabelOptionsTab(product_label3.TabIdentifier)}}"
+               stepKey="clickOnProdCatTab1"/>
+        <click selector="{{AdminProductLabelProfileSection.LabelTypeRadiobutton(product_label3.Identifier,product_label2.LabelTypeRadiobutton)}}"
+               stepKey="clickOnLabelType1"/>
+        <click selector="{{AdminProductLabelProfileSection.LabelPositionSelect(product_label3.Identifier,product_label2.LabelPositionHorSelect,product_label2.LabelPositionVerSelect)}}"
+               stepKey="clickOnLabelPosition1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelTextField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelTextField}}"
+                   stepKey="setLabelText1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.TextColorField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.TextColorField}}"
+                   stepKey="setTextColor1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.TextSizeField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.TextSizeField}}"
+                   stepKey="setTextSize1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.AdvancedSettingsCSSField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.AdvancedSettingsCSSField}}"
+                   stepKey="setAdvancedSettingsCSSField1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave2"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex2"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache2"/>
+    </actionGroup>
+
+    <actionGroup name="AdminProductLabelConfigurationProdCatTabShapeActionGroup"
+                 extends="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup">
+        <arguments>
+            <argument name="product_label2"/>
+            <argument name="product_label3"/>
+        </arguments>
+        <click selector="{{AdminProductLabelProfileSection.ShapeTypeRadiobutton(product_label2.ShapeType,product_label3.Identifier)}}"
+               stepKey="clickOnLabelShape1"
+               after="clickOnLabelType1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelColorField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelColorField}}"
+                   stepKey="setLabelColor1"
+                   after="clickOnLabelShape1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelSizeField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelSizeField}}"
+                   stepKey="setLabelSize1"
+                   after="setLabelColor1"/>
+    </actionGroup>
+
+    <actionGroup name="AdminProductLabelConfigurationProdCatTabUploadImageActionGroup"
+                 extends="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup">
+        <arguments>
+            <argument name="product_label2"/>
+            <argument name="product_label3"/>
+        </arguments>
+        <attachFile userInput="{{product_label2.LabelFileName}}"
+                    selector="{{AdminProductLabelProfileSection.UploadImageButton(product_label3.Identifier)}}"
+                    stepKey="uploadLabelImage1"
+                    after="clickOnLabelType1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelSizeField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelSizeField}}"
+                   stepKey="setLabelSize1"
+                   after="uploadLabelImage1"/>
+    </actionGroup>
+
+    <actionGroup name="AdminProductLabelConfigurationConditionsTabRefScenario1Scenario2CondActionGroup">
+        <click selector="{{AdminProductLabelProfileSection.LabelOptionsTab('Conditions')}}"
+               stepKey="clickOnConditionsTab1"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.newCondition}}"
+               stepKey="addNewCondition1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.conditionSelect('1')}}"
+                      userInput="$createConfigProductAttribute1.default_frontend_label$"
+                      stepKey="selectTypeCondition1"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsis('1')}}"
+               stepKey="clickEllipsis1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsisSelect('1','1')}}"
+                      userInput="$getConfigAttributeOption2.value$"
+                      stepKey="selectAttributeOption1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave3"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex3"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache3"/>
+    </actionGroup>
+
+    <actionGroup name="AdminProductLabelConfigurationConditionsTabRefScenario3Scenario4CondActionGroup"
+                 extends="AdminProductLabelConfigurationConditionsTabRefScenario1Scenario2CondActionGroup">
+        <click selector="{{AdminNewCatalogPriceRuleConditions.newCondition}}"
+               stepKey="addNewCondition2"
+               after="selectAttributeOption1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.conditionSelect('1')}}"
+                      userInput="$createConfigProductAttribute2.default_frontend_label$"
+                      stepKey="selectTypeCondition2"
+                      after="addNewCondition2"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsis('2')}}"
+               stepKey="clickEllipsis2"
+               after="selectTypeCondition2"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsisSelect('1','2')}}"
+                      userInput="$getConfigAttributeOption3.value$"
+                      stepKey="fillAttributeOption2"
+                      after="clickEllipsis2"/>
+    </actionGroup>
+
+    <actionGroup name="AdminDeleteProductLabelActionGroup">
+        <grabCookie userInput="setProductLabelIDInCookie" stepKey="grabCookie1"/>
+        <amOnPage url="{{AdminProductLabelProfilePage.url(edit/id/{$grabCookie1})}}"
+                  stepKey="navigateToProductLabelProfilePage2"/>
+        <waitForAjaxLoad stepKey="waitForAjaxLoad2"/>
+        <waitForElement selector="{{AdminProductLabelProfileSection.DeleteButton}}" stepKey="waitForElement3"/>
+        <click selector="{{AdminProductLabelProfileSection.DeleteButton}}" stepKey="clickOnDeleteButton1"/>
+        <waitForElement selector="{{AdminProductLabelProfileSection.OkButton('9')}}" stepKey="waitForElement4"/>
+        <wait time="2" stepKey="wait1"/>
+        <pressKey selector="{{AdminProductLabelProfileSection.OkButton('9')}}"
+                  parameterArray="[\Facebook\WebDriver\WebDriverKeys::ENTER]"
+                  stepKey="pressEnter"/>
+        <waitForPageLoad time="25" stepKey="waitForPageLoad1"/>
+        <see userInput="You deleted the label." selector="{{AdminConfigSystemSection.successMessage}}"
+             stepKey="seeSuccessMessage"/>
+    </actionGroup>
+
+</actionGroups>

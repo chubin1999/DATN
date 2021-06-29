@@ -1,0 +1,38 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+$helper = $this->helper('Margifox\Customer\Helper\Data');
+?>
+<?php if ($helper->getLogin()) : ?>
+    <div class="container">
+        <div class="main-content">
+            <?php
+            echo $this->getLayout()
+                ->createBlock('Magento\Cms\Block\Block')
+                ->setBlockId('home_page_logged_in')
+                ->toHtml();
+            ?>
+        </div>
+        <div class="right-sidebar">
+            <?php echo $this->getChildHtml('brand_rewards'); ?>
+            <div class="order-history-block">
+                <?php
+                echo $this->getLayout()
+                    ->createBlock("Margifox\OrderHistory\Block\OrderHistory")
+                    ->setTemplate('Margifox_OrderHistory::orders.phtml')
+                    ->setLimit("6")
+                    ->toHtml();
+                ?>
+            </div>
+        </div>
+    </div>
+<?php else : ?>
+    <div>
+        <?php
+        echo $this->getLayout()
+            ->createBlock('Magento\Cms\Block\Block')
+            ->setBlockId('home_page_logged_out')
+            ->toHtml();
+        ?>
+    </div>
+<?php endif; ?>
+

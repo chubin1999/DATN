@@ -1,0 +1,1392 @@
+/*Contact Page*/
+.contact-index-index {
+    .page-title-wrapper {
+        position: relative;
+
+        .page-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 0;
+
+            span {
+                color: #FFFFFF;
+                font-family: 'Omnes';
+                font-size: 60px;
+                font-weight: 500;
+                letter-spacing: -2px;
+                line-height: 60px;
+                text-align: center;
+            }
+        }
+
+        .banner-contact {
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+
+    .breadcrumbs {
+        max-width: 1000px;
+        margin-top: 19px;
+        margin-bottom: 17px;
+    }
+
+    .page-main {
+        max-width: 100%;
+        padding: 0;
+        .page.messages {
+            max-width: 984px;
+            padding: 0 12px 6px;
+            margin: 0 auto;
+        }
+        .columns {
+            display: block;
+            width: 100%;
+            border-top: solid 1px #EEE;
+            padding-top: 84px;
+            padding-bottom: 78px;
+        }
+    }
+
+    .column.main {
+        max-width: 1000px;
+        padding: 0 20px;
+        margin: 0 auto;
+
+        .content-left {
+            width: 62%;
+            float: left;
+            margin-bottom: 82px;
+            padding-right: 20px;
+        }
+
+        .form.contact {
+            min-width: auto;
+            max-width: 468px;
+            width: 100%;
+
+            .customer-name{
+                .field {
+                    width: 50%;
+                    display: inline-block;
+                    float: left;
+                }
+
+                .field.firstname {
+                    padding-right: 9px;
+                }
+
+                .field.lastname {
+                    padding-left: 9px;
+                }
+            }
+
+            .fieldset {
+                margin-bottom: 0;
+
+                .field {
+                    margin-bottom: 18px;
+                }
+
+                .field.comment {
+                    margin-bottom: 16px;
+
+                    textarea {
+                        min-height: 124px;
+                    }
+                }
+            }
+
+            .actions-toolbar {
+                margin-top: 9px;
+
+                .action.submit.primary {
+                    min-width: 118px;
+                }
+            }
+
+            .content_left_contact {}
+        }
+
+        .content-right {
+            width: 38%;
+            float: right;
+            max-width: 352px;
+            border: 1px solid #E4E4E4;
+            padding: 22px 30px 19px;
+            margin-bottom: 82px;
+            .item-contact.live-chat{
+                .live-chat-button{
+                    margin-top: 10px;
+                    margin-left: 30px;
+                    button{
+                        padding: 0 29.54px;
+                        a{
+                            color: #FFFFFF;
+                            font-size: 16px;
+                            font-weight: bold;
+                            letter-spacing: 0;
+                            line-height: 19px;
+                            text-align: center;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            .item-contact {
+                margin-bottom: 8px;
+
+                h5 {
+                    text-transform: uppercase;
+                    margin: 0 0 4px;
+                    padding-left: 9px;
+                }
+
+                p {
+                    margin-bottom: 0;
+                    padding-left: 29px;
+                    a{
+                        color: #56565a;
+                        font-family: 'Proxima Nova';
+                        font-size: 14px;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                        font-weight: 400;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .item-contact.phone {
+                h5 {
+                    &:before {
+                        content: '';
+                        background: url('../images/phone.svg') no-repeat;
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        position: relative;
+                        top: 10px;
+                        right: 11px;
+                    }
+                }
+            }
+
+            .item-contact.live-chat {
+                margin-bottom: 10px;
+
+                h5 {
+                    &:before {
+                        content: '';
+                        background: url('../images/chat-icon.svg') no-repeat;
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background-size: 18px;
+                        position: relative;
+                        top: 12px;
+                        right: 10px;
+                    }
+                }
+
+                .button-contact {
+                    padding: 8px 29px 0;
+                }
+
+                .pagebuilder-button-primary {
+                    border: 1px solid #91b1c7;
+                    background: #91b1c7;
+                    color: #fff;
+                    min-width: 124px;
+                    font: 700 16px/48px 'Proxima Nova';
+                    letter-spacing: 0;
+                    padding: 0 3px;
+                    margin: 0;
+
+                    &:hover {
+                        border: 1px solid #699cbf;
+                        background: #699cbf;
+                    }
+
+                    span {
+                        font: 700 16px/48px 'Proxima Nova';
+                        letter-spacing: 0;
+                    }
+                }
+            }
+
+            .item-contact.email {
+                h5 {
+                    &:before {
+                        content: '';
+                        background: url('../images/mail.svg') no-repeat;
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        background-size: 19px;
+                        position: relative;
+                        top: 14px;
+                        right: 10px;
+                    }
+                }
+            }
+
+            .item-contact.location {
+                h5 {
+                    &:before {
+                        content: '';
+                        background: url('../images/home.svg') no-repeat;
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        position: relative;
+                        top: 10px;
+                        right: 11px;
+                    }
+                }
+            }
+
+            .item-contact.stockist {
+                h5 {
+                    &:before {
+                        content: '';
+                        background: url('../images/info-help.svg') no-repeat;
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        position: relative;
+                        top: 10px;
+                        right: 11px;
+                    }
+                }
+            }
+        }
+
+        .google-map {
+            display: inline-block;
+            width: 100%;
+
+            iframe {
+                width: 100%;
+                min-height: 548px;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    .contact-index-index {
+        .banner-contact {
+            img.pagebuilder-mobile-only {
+                display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: 991px) and (min-width: 768px) {
+    .contact-index-index {
+        .page-main {
+            .columns {
+                padding-top: 40px;
+            }
+        }
+
+        .column.main {
+            .content-right {
+                padding: 22px 22px 19px;
+            }
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .contact-index-index {
+        .breadcrumbs {
+            padding: 0 12px;
+            max-width: 100%;
+            margin-top: 13px;
+            margin-bottom: 11px;
+        }
+
+        .banner-contact {
+            img.pagebuilder-mobile-hidden {
+                display: none;
+            }
+        }
+
+        .page-title-wrapper {
+            .page-title {
+                span {
+                    font-size: 36px;
+                    letter-spacing: -1px;
+                    line-height: 36px;
+                }
+            }
+        }
+
+        .page-main .columns {
+            padding-top: 12px;
+            padding-bottom: 18px;
+        }
+
+        .column.main {
+            max-width: 100%;
+            padding: 0 12px;
+
+            .content-left {
+                width: 100%;
+                float: left;
+                margin-bottom: 18px;
+                padding-right: 0;
+            }
+
+            .form.contact {
+                max-width: 100%;
+
+                .customer-name {
+                    display: block;
+                }
+
+                .actions-toolbar {
+                    margin-top: 6px;
+                }
+            }
+
+            .content-right {
+                width: 100%;
+                margin-bottom: 18px;
+                max-width: 100%;
+            }
+
+            .google-map {
+                iframe {
+                    height: 320px;
+                    min-height: auto;
+                }
+            }
+        }
+    }
+}
+
+/*Login Page*/
+.customer-account-login {
+    .page-main{
+        margin-top: 20px;
+        .page.messages{
+            max-width: 900px;
+            padding: 20px 0px 0px;
+        }
+    }
+
+    .block-customer-login,
+    .block-new-company {
+        float: none !important;
+        margin: 0 auto;
+        padding: 0px 15px;
+        max-width: 430px;
+    }
+    .column.main{
+        padding-bottom: 68px;
+    }
+    .page.messages {
+        padding: 20px 0px 15px;
+    }
+    .field.note {
+        text-align: center;
+        margin-bottom: 36px;
+        color: #56565A;
+        font-family: "Proxima Nova";
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 20px;
+    }
+
+    .field.email.required {
+        margin-bottom: 11px !important;
+    }
+
+    .field.choice.required {
+        .mage-error-custom {
+            color: #FF0000;
+            font-family: 'Proxima Nova';
+            font-size: 13px;
+            letter-spacing: 0;
+            font-weight: 400;
+            margin-top: 3px;
+        }
+
+        .label {
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .actions-toolbar {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .control {
+        width: 100% !important;
+    }
+
+    .fieldset {
+        &::after {
+            display: none;
+        }
+    }
+
+    .primary {
+        float: none;
+        display: block;
+        margin-bottom: 6px;
+
+        a.action.create.primary {
+            color: #181818;
+            border: 1px solid #E4E4E4;
+            border-radius: 3px;
+            background-color: #FFFFFF;
+            &:hover{
+                background: #EEEEEE;
+                transition: 0.5s;
+                color: #181818;
+            }
+
+            span {
+                font-family: "Proxima Nova";
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 16px;
+            }
+        }
+
+        button {
+            width: 100% !important;
+
+            span {
+                color: #FFFFFF;
+                font-family: "Proxima Nova";
+                font-size: 16px;
+                font-weight: bold;
+                letter-spacing: 0;
+                line-height: 19px;
+                text-align: center;
+            }
+        }
+
+        a.action.create.primary {
+            width: 100% !important;
+        }
+    }
+
+    .secondary {
+        a {
+            color: #777777;
+            font-family: "Proxima Nova";
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+
+    .you-can {
+        border-top: 1px solid #EEE;
+        margin: 20px 0px 30px 0px;
+        position: relative;
+
+        .text-you-can {
+            position: absolute;
+            top: 0px;
+            padding: 0px 10px;
+            background-color: #fff;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #56565A;
+            font-family: "Proxima Nova";
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+    }
+
+    h1.page-title {
+        text-align: center;
+        margin: 38px 0px 14px 0px;
+        color: #111111;
+        font-family: 'Omnes';
+        font-size: 32px;
+        letter-spacing: 0;
+        line-height: 34px;
+    }
+
+    .term-login {
+        color: #56565A;
+        font-family: "Proxima Nova";
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 20px;
+    }
+}
+
+// Pop-up login
+.modals-wrapper {
+    .modals-overlay{
+        z-index: 1000!important;
+    }
+    .customer-popup {
+        .modal-inner-wrap {
+            width: 100% !important;
+            max-width: 872px !important;
+        }
+
+        &.modal-popup.modal-slide._inner-scroll._show {
+            display: flex;
+            align-items: center;
+            z-index: 1001!important;
+        }
+
+        header {
+            padding: 0px !important;
+
+            button {
+                margin: 0px 6px !important;
+
+                &::before {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
+        .modal-content {
+            padding: 0px !important;
+        }
+
+        .customer-popup-login {
+            display: flex !important;
+            max-height: 565.28px;
+        }
+
+        .image {
+            width: 40%;
+
+            img.image-popup {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        .block-customer-login {
+            width: 60%;
+            padding: 65px 58px 45px 60px;
+            margin: 0;
+
+            .secondary {
+                .register-become-popup {
+                    width: 100%;
+                    color: #181818;
+                    font-family: "Proxima Nova";
+                    font-size: 16px;
+                    font-weight: 500;
+                    letter-spacing: 0;
+                    text-align: center;
+                    border: 1px solid #E4E4E4;
+                    border-radius: 3px;
+                    padding: 16px;
+                    line-height: 16px;
+                    background-color: #FFFFFF;
+                    &:hover{
+                        background: #EEEEEE;
+                        transition: 0.5s;
+                        color: #181818;
+                    }
+                }
+            }
+
+            h1 {
+                color: #111111;
+                font-family: 'Omnes';
+                font-size: 32px;
+                letter-spacing: 0;
+                line-height: 34px;
+                text-align: center;
+            }
+
+            .label {
+                &::after {
+                    display: none;
+                }
+            }
+
+            .block-content {
+
+                .field.email.required,
+                .field.password.required,
+                .field.choice.required {
+                    margin-bottom: 12px;
+
+                    .mage-error-custom {
+                        color: #FF0000;
+                        font-family: 'Proxima Nova';
+                        font-size: 13px;
+                        letter-spacing: 0;
+                        font-weight: 400;
+                        margin-top: 3px;
+                    }
+
+                    .term-login {
+                        color: #56565A;
+                        font-family: "Roboto";
+                        font-size: 14px;
+                        letter-spacing: 0;
+
+                        a {
+                            color: #56565A;
+                            font-family: "Roboto";
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            line-height: 20px;
+                            text-decoration: underline !important;
+                        }
+                    }
+                }
+                .field.email.required,
+                .field.password.required{
+                    input{
+                        &:hover{
+                            border-color: #e4e4e4;
+                        }
+                    }
+                }
+
+                .actions-toolbar {
+                    text-align: center;
+
+                    .primary {
+                        display: block !important;
+                        float: none !important;
+                        margin-bottom: 7px;
+
+                        button {
+                            width: 100%;
+
+                            span {
+                                color: #FFFFFF;
+                                font-family: "Proxima Nova";
+                                font-size: 16px;
+                                font-weight: bold;
+                                letter-spacing: 0;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    .secondary {
+                        .action {
+                            color: #777777;
+                            font-family: "Proxima Nova";
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            margin-bottom: 9px;
+                            text-align: center;
+                            text-decoration: underline !important;
+                        }
+                    }
+                }
+            }
+
+            .you-can {
+                border-top: 1px solid #EEE;
+                margin: 20px 0px 30px 0px;
+                position: relative;
+
+                .text-you-can {
+                    position: absolute;
+                    top: 0px;
+                    padding: 0px 10px;
+                    background-color: #fff;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    color: #56565A;
+                    font-family: "Proxima Nova";
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    line-height: 20px;
+                }
+            }
+        }
+    }
+}
+
+.customer-account-forgotpassword {
+    .page-main{
+        margin-top: 60px;
+    }
+    .page-title {
+        text-align: center;
+        padding: 20px 0px 0px;
+        margin-bottom: 10px;
+        color: #111 !important;
+    }
+    .page.messages{
+        max-width: 900px;
+        padding: 20px 0px 0px;
+    }
+    form {
+        margin: 0 auto;
+        padding: 0px 60px 37px;
+
+        fieldset {
+            padding: 0px 20px;
+            margin-bottom: 0px;
+
+            &::after {
+                display: none !important;
+            }
+
+            .field.note {
+                color: #56565A;
+                font-family: "Proxima Nova";
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 20px;
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
+            .field.email.required {
+                padding: 0px 30px;
+                margin-bottom: 12px;
+            }
+
+            .field.captcha.required {
+                padding: 0px 30px;
+
+                .control.captcha {
+                    .nested {
+                        .control.captcha-image {
+                            margin-top: 12px;
+                        }
+
+                        img {
+                            margin: 0px 12px 0px 0px !important;
+                        }
+
+                        button.action.reload.captcha-reload {
+                            background: #fff;
+                            color: #181818;
+                            width: 184px;
+                            font-family: "Proxima Nova";
+                            font-size: 16px;
+                            font-weight: 500;
+                            letter-spacing: 0;
+                            border: 1px solid #E4E4E4;
+                            border-radius: 3px;
+                            line-height: 16px;
+                            text-align: center;
+                            &:hover{
+                                transition: 0.3s;
+                                background-color: #EEE;
+                                border: 0px solid #EEE
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .actions-toolbar {
+            padding: 23px 50px 0px;
+            text-align: center;
+        }
+
+        .actions-toolbar {
+            .primary {
+                width: 100%;
+
+                button.action.submit.primary {
+                    width: 100%;
+                }
+            }
+
+            .secondary {
+                margin-top: 8px;
+
+                a.action.back {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .logout.customer-account-login{
+        .page-wrapper{
+            .page-main{
+                padding-left: 12px;
+                padding-right: 12px;
+                .page-title{
+                    font-size: 24px;
+                    margin: 20px 0px 8px 0px;
+                }
+                .columns{
+                    .column.main{
+                        padding-bottom: 20px;
+                        .login-container{
+                            .block.block-customer-login{
+                                padding: 0px;
+                                form{
+                                    .fieldset.login{
+                                        .field.note{
+                                            margin-bottom: 30px;
+                                        }
+                                        .field.email.required{
+                                            margin-bottom: 13px !important;
+                                        }
+                                        .field.password.required{
+                                            margin-bottom: 18px !important;
+                                        }
+                                        .actions-toolbar{
+                                            .primary{
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .fieldset{
+                                        &:last-child{
+                                            margin-bottom: -3px;
+                                        }
+                                    }
+                                }
+                                .you-can{
+                                    margin: 16px 0px 30px 0px;
+                                }
+                            }
+                            .block.block-new-company{
+                                padding: 0px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modals-wrapper {
+        .customer-popup {
+            .modal-inner-wrap {
+                max-width: 290px !important;
+                margin: auto;
+            }
+
+
+            &.modal-popup.modal-slide._inner-scroll {
+                &._show {
+                    left: 0px;
+                }
+            }
+
+            header {
+                button {
+                    margin: 6px 24px 15px 15px !important;
+
+                    &::before {
+                        font-size: 16px !important;
+                    }
+                }
+            }
+
+            .image {
+                display: none;
+            }
+
+            &.modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+                background-color: #fff;
+                min-height: 0%;
+                height: 90%;
+            }
+
+            .block-customer-login {
+                width: 100%;
+                padding: 45px 15px 45px 15px;
+
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 24px;
+                }
+
+                .block-content {
+                    form {
+                        fieldset {
+                            &::after {
+                                display: none;
+                            }
+
+                            .messages {
+                                margin: 0px auto 20px !important;
+                            }
+                        }
+                    }
+                }
+
+                .you-can {
+                    margin: 20px 0px 34px 0px;
+                }
+
+                .block-content {
+                    .actions-toolbar {
+                        margin-bottom: 8px;
+
+                        .primary {
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-account-forgotpassword {
+        .page-title {
+            padding: 0px;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        form {
+            padding: 0px;
+
+            fieldset {
+                padding: 0px;
+
+                &::after {
+                    display: none !important;
+                }
+
+                .field.email.required {
+                    padding: 0px;
+                    margin-bottom: 12px;
+                }
+
+                .field.captcha.required {
+                    padding: 0px;
+
+                    .control.captcha {
+                        .nested {
+                            .control.captcha-image {
+                                margin-top: 12px;
+                                display: flex;
+                                justify-content: space-between
+                            }
+
+                            img {
+                                margin: 0px !important;
+                                width: 45%;
+                            }
+
+                            button.action.reload.captcha-reload {
+                                width: 160px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .actions-toolbar {
+                padding: 17px 0px 0px;
+            }
+
+            .actions-toolbar {
+                .secondary {
+                    margin-top: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 375px) {
+    .logout.customer-account-login{
+        .page-main{
+            margin-top: 0px!important;
+            .page.messages{
+                padding: 0px!important;
+            }
+        }
+        .page-wrapper{
+            .page-main{
+                padding-left: 12px;
+                padding-right: 12px;
+                .page-title{
+                    font-size: 24px;
+                    margin: 20px 0px 8px 0px;
+                }
+                .columns{
+                    .column.main{
+                        padding-bottom: 20px;
+                        .login-container{
+                            .block.block-customer-login{
+                                padding: 0px;
+                                form{
+                                    .fieldset.login{
+                                        .field.note{
+                                            margin-bottom: 30px;
+                                        }
+                                        .field.email.required{
+                                            margin-bottom: 13px !important;
+                                        }
+                                        .field.password.required{
+                                            margin-bottom: 18px !important;
+                                        }
+                                        .actions-toolbar{
+                                            .primary{
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .fieldset{
+                                        &:last-child{
+                                            margin-bottom: -3px;
+                                        }
+                                    }
+                                }
+                                .you-can{
+                                    margin: 22px 0px 30px 0px;
+                                }
+                            }
+                            .block.block-new-company{
+                                padding: 0px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modals-wrapper {
+        .customer-popup {
+            .modal-inner-wrap {
+                max-width: 350px !important;
+                margin: auto;
+            }
+
+
+            &.modal-popup.modal-slide._inner-scroll {
+                &._show {
+                    left: 0px;
+                }
+            }
+
+            header {
+                button {
+                    margin: 0px !important;
+
+                    &::before {
+                        font-size: 16px !important;
+                    }
+                }
+            }
+
+            .image {
+                display: none;
+            }
+
+            &.modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+                background-color: #fff;
+                min-height: 0% !important;
+                height: 74%;
+            }
+
+            .block-customer-login {
+                width: 100%;
+                padding: 39px 11px 30px 11px;
+
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 4px;
+                }
+
+                .block-content {
+                    form {
+                        fieldset {
+                            .messages {
+                                margin: 0px auto 20px !important;
+                            }
+                        }
+                    }
+                }
+
+                .you-can {
+                    margin: 20px 0px 34px 0px;
+                }
+
+                .block-content {
+                    .actions-toolbar {
+                        margin-bottom: 8px;
+
+                        .primary {
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-account-forgotpassword {
+        .page-wrapper {
+            .page-main {
+                padding: 0px 11px 0px!important;
+                margin-top: 21px;
+                .columns {
+                    .column.main {
+                        padding-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+        .page-title {
+            padding: 0px;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        form {
+            padding: 0px;
+
+            fieldset {
+                padding: 0px;
+
+                &::after {
+                    display: none !important;
+                }
+
+                .field.email.required {
+                    padding: 0px;
+                    margin-bottom: 12px;
+                }
+
+                .field.captcha.required {
+                    padding: 0px;
+
+                    .control.captcha {
+                        .nested {
+                            .control.captcha-image {
+                                margin-top: 12px;
+                                display: flex;
+                                justify-content: space-between
+                            }
+
+                            img {
+                                margin: 0px !important;
+                                width: 51%;
+                            }
+
+                            button.action.reload.captcha-reload {
+                                width: 164px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .actions-toolbar {
+                padding: 17px 0px 0px;
+            }
+
+            .actions-toolbar {
+                .secondary {
+                    margin-top: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    .logout.customer-account-login{
+        .page-wrapper{
+            .page-main{
+                padding-left: 12px;
+                padding-right: 12px;
+                .page-title{
+                    font-size: 24px;
+                    margin: 20px 0px 8px 0px;
+                }
+                .columns{
+                    .column.main{
+                        padding-bottom: 20px;
+                        .login-container{
+                            .block.block-customer-login{
+                                padding: 0px;
+                                form{
+                                    .fieldset.login{
+                                        .field.note{
+                                            margin-bottom: 30px;
+                                        }
+                                        .field.email.required{
+                                            margin-bottom: 13px !important;
+                                        }
+                                        .field.password.required{
+                                            margin-bottom: 18px !important;
+                                        }
+                                        .actions-toolbar{
+                                            .primary{
+                                                margin-bottom: 15px;
+                                            }
+                                        }
+                                    }
+                                    .fieldset{
+                                        &:last-child{
+                                            margin-bottom: -3px;
+                                        }
+                                    }
+                                }
+                                .you-can{
+                                    margin: 16px 0px 30px 0px;
+                                }
+                            }
+                            .block.block-new-company{
+                                padding: 0px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modals-wrapper {
+        .customer-popup {
+            .modal-inner-wrap {
+                max-width: 350px !important;
+                margin: auto;
+            }
+
+
+            &.modal-popup.modal-slide._inner-scroll {
+                &._show {
+                    left: 0px;
+                }
+            }
+
+            header {
+                button {
+                    margin: 6px 24px 15px 15px !important;
+
+                    &::before {
+                        font-size: 16px !important;
+                    }
+                }
+            }
+
+            .image {
+                display: none;
+            }
+
+            &.modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+                background-color: #fff;
+                min-height: 0% !important;
+                height: 50%;
+            }
+
+            .block-customer-login {
+                width: 100%;
+                padding: 41px 20px 45px 20px;
+
+                h1 {
+                    font-size: 24px;
+                    margin-bottom: 24px;
+                }
+
+                .you-can {
+                    margin: 20px 0px 34px 0px;
+                }
+
+                .block-content {
+                    .actions-toolbar {
+                        margin-bottom: 8px;
+
+                        .primary {
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customer-account-forgotpassword {
+        form {
+            fieldset {
+                &::after {
+                    display: none !important;
+                }
+
+                .field.captcha.required {
+                    .control.captcha {
+                        .nested {
+                            .control.captcha-image {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+
+                            img {
+                                margin: 0px !important;
+                            }
+
+                            button.action.reload.captcha-reload {
+                                width: 164px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 1024px) {
+    .customer-account-forgotpassword {
+        form {
+            fieldset {
+                &::after {
+                    display: none !important;
+                }
+
+                .field.captcha.required {
+                    .control.captcha {
+                        .nested {
+                            .control.captcha-image {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+
+                            img {
+                                margin: 0px !important;
+                            }
+
+                            button.action.reload.captcha-reload {
+                                width: 174px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1365px) and (min-width: 1200px) {}
+
+@media only screen and (min-width: 1366px) {}

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="margifox" translate="label" sortOrder="1">
+            <label>Margifox</label>
+        </tab>
+        <section id="brand_reward" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Loyalty and Promo Allocations</label>
+            <tab>margifox</tab>
+            <resource>Margifox_BrandReward::reward</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Main Configuration</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <comment>Configures if the module is enabled</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="life_time" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Life time for Rewards and Promo Allocation points (days)</label>
+                    <validate>validate-zero-or-greater validate-digits</validate>
+                </field>
+            </group>
+            <group id="spending_level" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Spending Levels</label>
+                <field id="points_earned_per" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Points earned per $1</label>
+                    <frontend_model>Margifox\BrandReward\Block\Adminhtml\Form\Field\ConfigPerBrand</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="points_to_redeem" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Points needed to redeem $1 off</label>
+                    <frontend_model>Margifox\BrandReward\Block\Adminhtml\Form\Field\PointsRedeem</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="min_sales_per_year" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Min sales per year</label>
+                    <frontend_model>Margifox\BrandReward\Block\Adminhtml\Form\Field\ConfigPerBrand</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="min_sales_per_month" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Min sales per month</label>
+                    <frontend_model>Margifox\BrandReward\Block\Adminhtml\Form\Field\ConfigPerBrand</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+                <field id="promotional_allocation" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Promotional Allocation (samples/collateral)</label>
+                    <frontend_model>Margifox\BrandReward\Block\Adminhtml\Form\Field\ConfigPerBrand</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+            <group id="notification" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Notification Settings</label>
+                <field id="is_enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enable Notifications</label>
+                    <comment>Send notification e-Mails</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sender" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <comment>The sender for the notification e-Mails</comment>
+                </field>
+                <field id="expired_notification_template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>API Changed Notifications</label>
+                    <comment>The template for the expire promotion allocation notification e-Mails</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+                <field id="expiry_day_before" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Expiry Warning Before (days)</label>
+                    <validate>validate-zero-or-greater validate-digits</validate>
+                    <comment>Entering no value or a value greater than the expiration lifetime disables the warning notification.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

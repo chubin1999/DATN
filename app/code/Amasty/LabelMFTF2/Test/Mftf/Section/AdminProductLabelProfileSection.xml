@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/sectionSchema.xsd">
+
+    <section name="AdminProductLabelProfileSection">
+        <element name="LabelOptionsTab" type="block"
+                 selector="//a[@class='admin__page-nav-link tab-item-link   ui-tabs-anchor'][contains(string(),'{{var1}}')]"
+                 parameterized="true"/>
+
+        <element name="NameField" type="input" selector="//*[@id='label_name']"/>
+        <element name="StatusSwitcher" type="select" selector="//*[@id='label_status']"/>
+        <element name="PriorityField" type="input" selector="//*[@id='label_pos']"/>
+        <element name="HideIfHigherPriorityLabelIsAppliedSwitcher" type="select" selector="//*[@id='label_is_single']"/>
+        <element name="UseForParentSwitcher" type="select" selector="//*[@id='label_use_for_parent']"/>
+        <element name="StoreMultiSelect" type="multiselect" selector="//*[@id='label_stores']"/>
+
+        <element name="LabelTypeRadiobutton" type="radioset"
+                 selector="//div[@id='amlabel-choose-labels_{{var1}}_img']/input[contains(@id,'{{var2}}')]"
+                 parameterized="true"/>
+        <element name="LabelPositionSelect" type="radioset"
+                 selector="//*[@id='amlabel-table-{{var1}}_pos']/tbody/tr[{{var2}}]/td[{{var3}}]" parameterized="true"/>
+        <element name="LabelTextField" type="input" selector="//*[@id='labels_{{var1}}_txt']" parameterized="true"/>
+        <element name="TextColorField" type="input" selector="//*[@id='labels_{{var1}}_color']" parameterized="true"/>
+        <element name="TextSizeField" type="input" selector="//*[@id='labels_{{var1}}_size']" parameterized="true"/>
+        <element name="AdvancedSettingsCSSField" type="input" selector="//*[@id='labels_{{var1}}_style']"
+                 parameterized="true"/>
+        <element name="ShapeTypeRadiobutton" type="radioset"
+                 selector="//div[@class='amlabel-shape']/input[@id='shape_{{var1}}labels_{{var2}}_img']"
+                 parameterized="true"/>
+        <element name="LabelColorField" type="input" selector="//*[@id='labels_{{var1}}_label_color']"
+                 parameterized="true"/>
+        <element name="LabelSizeField" type="input" selector="//*[@id='labels_{{var1}}_image_size']"
+                 parameterized="true"/>
+        <element name="UploadImageButton" type="button" selector="//*[@id='labels_{{var1}}_img']" parameterized="true"/>
+
+        <element name="SaveAndContinue" type="button" selector="#save_and_continue_edit"/>
+        <element name="DeleteButton" type="select" selector="//*[@id='delete']"/>
+        <element name="OkButton" type="button"
+                 selector="//*[@id='html-body']/div[{{var1}}]/aside[2]/div[2]/footer/button[2]" parameterized="true"/>
+    </section>
+
+</sections>

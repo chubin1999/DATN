@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="order_additional_info">
+            <block class="Magento\Framework\View\Element\Template" name="order_points" template="Margifox_BrandRewardUi::order/view/redeemed_listing.phtml">
+                <uiComponent name="order_loyalty_points_earned_listing"/>
+                <uiComponent name="order_loyalty_points_redeemed_listing"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

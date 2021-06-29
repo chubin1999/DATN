@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">order_loyalty_points_redeemed_listing.order_loyalty_points_redeemed_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>order_loyalty_points_redeemed_listing_columns</spinner>
+        <deps>
+            <dep>order_loyalty_points_redeemed_listing.order_loyalty_points_redeemed_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="order_loyalty_points_redeemed_listing_data_source" component="Margifox_BrandRewardUi/js/grid/provider">
+        <settings>
+            <filterUrlParams>
+                <param name="order_id">*</param>
+            </filterUrlParams>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Company::index</aclResource>
+        <dataProvider class="Margifox\BrandRewardUi\Ui\Component\Sales\OrderLoyaltyPointsRedeemedDataProvider" name="order_loyalty_points_redeemed_listing_data_source">
+            <settings>
+                <requestFieldName>order_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <columns name="order_loyalty_points_redeemed_listing_columns">
+        <column name="entity_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Redemption Id</label>
+            </settings>
+        </column>
+        <column name="brand">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Brand</label>
+            </settings>
+        </column>
+        <column name="history_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">History Id</label>
+            </settings>
+        </column>
+        <column name="amount_redeemed">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Amount Redeemed</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

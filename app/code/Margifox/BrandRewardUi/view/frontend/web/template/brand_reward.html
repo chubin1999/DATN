@@ -1,0 +1,20 @@
+<div class="brand-reward-section">
+    <!-- ko foreach: { data: brandRewards, as: 'item' } -->
+        <div class="brand-level-info">
+            <h4 data-bind="text: $parent.labelForBrand(item.brand_name)"></h4>
+        </div>
+
+        <div class="brand-reward-stepper-horizontal">
+            <!-- ko foreach: { data: item.siblings, as: 'label' } -->
+                <div class="level" data-bind="css: label.class">
+                    <div class="level-icon"></div>
+                    <div data-bind="text: $parentContext.$parent.labelForLevel(label.name)" class="level-level-title"></div>
+                    <div data-bind="text: $parentContext.$parent.labelForPrice(label.price)" class="level-optional"></div>
+                    <div class="level-circle"></div>
+                    <div class="level-bar-left"></div>
+                    <div class="level-bar-right"></div>
+                </div>
+            <!-- /ko -->
+        </div>
+    <!-- /ko -->
+</div>

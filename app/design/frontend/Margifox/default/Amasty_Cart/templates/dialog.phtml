@@ -1,0 +1,49 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Cart
+ */
+?>
+<?php
+/** @var $block \Amasty\Cart\Block\Product */
+$product = $block->getProduct();
+$name = $product->getName();
+$helper_customer = $this->helper('Margifox\Customer\Helper\Data');
+$url_cart = $this->getUrl('checkout/cart');
+?>
+
+<a href="<?= $block->escapeUrl($product->getProductUrl()) ?>"
+   title="<?= $block->escapeHtml($name); ?>"
+   class="added-item">
+    <?= $block->escapeHtml($name);?>
+</a>
+<!-- change message -->
+<?php if($block->escapeHtml($block->getMessage()) == 'has been added to your cart') : ?>
+
+    <div class="mes-shopping">
+
+      <p><?=__('%1 has been added to your shopping cart.',$name); ?></p>
+
+      <p><?=__('Item added to your cart.')?></p>
+
+      <a href="<?=$url_cart?>"><span><?=__('View shopping cart')?></span><span><?=__('View cart')?></span></a>
+
+    </div>
+    
+<?php else : ?>
+
+  <p class="text"><?= $block->escapeHtml($block->getMessage()) ?></p>
+  
+<?php endif;?>
+<!-- end change message -->
+
+<div class="am-photo-container">
+    <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>"
+       title="<?= $block->escapeHtml($name); ?>"
+       tabindex="-1"
+       class="product-item-photo">
+        <?= /* @noEscape */ $block->getImage($product, 'cart_page_product_thumbnail')->toHtml(); ?>
+    </a>
+    <?= /* @noEscape */ $block->getQtyHtml(); ?>
+</div>

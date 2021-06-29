@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-brand-loyalty-rewards">
+                <arguments>
+                    <argument name="path" xsi:type="string">brand_reward/customer/loyalty</argument>
+                    <argument name="label" xsi:type="string">Loyalty Rewards</argument>
+                    <argument name="sortOrder" xsi:type="number">260</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-brand-promo-rewards">
+                <arguments>
+                    <argument name="path" xsi:type="string">brand_reward/customer/promo</argument>
+                    <argument name="label" xsi:type="string">Promo Allocations Rewards</argument>
+                    <argument name="sortOrder" xsi:type="number">270</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

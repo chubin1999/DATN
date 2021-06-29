@@ -1,0 +1,27 @@
+{
+    "name": "fooman/totals-m2",
+    "description": "Provides Custom Totals functionality for Fooman Magento 2 Extensions",
+    "type": "magento2-module",
+    "version": "9.2.0",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0|~7.3.0|~7.4.0",
+        "magento/framework": "^101.0.0 | ^102.0.0 | ^103.0.0",
+        "magento/module-backend": "^100.2.0 | ^101.0.0 | ^102.0.0",
+        "magento/module-sales": "^101.0.0 | ^102.0.0 | ^103.0.0",
+        "magento/module-quote": "^101.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Fooman\\Totals\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

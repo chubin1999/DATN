@@ -1,0 +1,37 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form method="post">
+    <input type="hidden" data-bind="value: value().product_data" name="product_data">
+    <fieldset class="fieldset">
+        <div class="field _required">
+            <div class="control">
+                <input class="input-text"
+                        name="name"
+                        placeholder=" "
+                        id="requisition-list-name"
+                        data-bind="value: value().name"
+                        data-validate='{"required": true}'
+                        type="text">
+                <label for="requisition-list-name" class="label requisition-label">
+                    <span data-bind="i18n: 'Wishlist name *'"></span>
+                </label>
+            </div>
+        </div>
+        <div class="field textarea">
+            <div class="control">
+                <textarea name="description"
+                        maxlength="255"
+                        placeholder=" "
+                        id="requisition-list-description"
+                        data-bind="value: value().description"></textarea>
+                        <label for="requisition-list-description" class="label requisition-label">
+                        <span data-bind="i18n: 'Description'"></span>
+                    </label>
+            </div>
+        </div>
+    </fieldset>
+</form>

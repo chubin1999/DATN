@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="company_brand_spending_level" resource="default" engine="innodb" comment="Company Brand Spending Level">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="Id"/>
+        <column xsi:type="int" name="company_id" unsigned="true" nullable="false" identity="false" default="0" comment="Company Id"/>
+        <column xsi:type="int" name="brand_id" unsigned="true" nullable="false" identity="false" default="0" comment="Brand Id"/>
+        <column xsi:type="varchar" name="spending_level" nullable="false" length="10" comment="Brand Spending Level"/>
+        <column xsi:type="int" name="loyalty_points_balance" unsigned="true" nullable="false" identity="false" default="0" comment="Current Loyalty Points Balance"/>
+        <column xsi:type="int" name="allocation_points_balance" unsigned="true" nullable="false" identity="false" default="0" comment="Current Promo Allocations Points Balance"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="BRAND_REWARD_COMPANY_ID_ENTITY_ID"
+                    table="company_brand_spending_level" column="company_id"
+                    referenceTable="company" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+        <constraint xsi:type="unique" referenceId="BRAND_REWARD_COMPANY_ID_BRAND_ID">
+            <column name="company_id"/>
+            <column name="brand_id"/>
+        </constraint>
+    </table>
+    <table name="company_brand_spending_history" resource="default" engine="innodb" comment="Company Brand Spending History">
+        <column xsi:type="int" name="history_id" unsigned="true" nullable="false" identity="true" comment="History Id"/>
+        <column xsi:type="varchar" name="reward_type" nullable="false" length="50" comment="Type"/>
+        <column xsi:type="varchar" name="status" nullable="false" length="50" comment="Status"/>
+        <column xsi:type="smallint" name="company_id" unsigned="true" nullable="false" identity="false" default="0" comment="Website Id"/>
+        <column xsi:type="smallint" name="brand_id" unsigned="true" nullable="false" identity="false" default="0" comment="Brand Id"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="decimal" name="orig_transaction_amount" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Original Transaction Amount"/>
+        <column xsi:type="decimal" name="loyalty_points_earned" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Loyalty Points Earned"/>
+        <column xsi:type="decimal" name="rewards_allocation_amount" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="Rrewards Allocation Earned"/>
+        <column xsi:type="varchar" name="action_type" nullable="false" length="50" comment="History Type"/>
+        <column xsi:type="smallint" name="order_id" unsigned="true" nullable="true" identity="false" default="0" comment="Order Id (if action_type = purchase)"/>
+        <column xsi:type="smallint" name="credit_memo_id" unsigned="true" nullable="false" identity="false" default="0" comment="Credit Memo Id (if action_type = refunded)"/>
+        <column xsi:type="varchar" name="increment_id" nullable="false" length="50" comment="Increment Id"/>
+        <column xsi:type="int" name="points_delta" unsigned="false" nullable="false" identity="false" default="0" comment="Points Delta"/>
+        <column xsi:type="int" name="points_used" unsigned="false" nullable="false" identity="false" default="0" comment="Points Used"/>
+        <column xsi:type="decimal" name="new_balance_points" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="New Balance Points"/>
+        <column xsi:type="decimal" name="new_balance_promo_allocation" scale="4" precision="20" unsigned="false" nullable="false" default="0" comment="New Balance Promo Allocation"/>
+        <column xsi:type="smallint" name="expiry_notification_sent" unsigned="false" nullable="false" identity="false" default="0" comment=" ExpiryNotification Sent"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="history_id"/>
+        </constraint>
+    </table>
+
+    <table name="quote" resource="checkout" comment="Sales Flat Quote">
+        <column xsi:type="varchar" name="brand_reward_ids" nullable="false" length="250" comment="Reward Brand Ids"/>
+    </table>
+</schema>

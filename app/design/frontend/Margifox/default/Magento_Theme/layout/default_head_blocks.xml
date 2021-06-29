@@ -1,0 +1,24 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <link rel="stylesheet" type="text/css" src="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700" src_type="url" />
+        <css src="css/category.css" media="all" />
+        <css src="css/styleguide.css" media="all" />
+        <css src="css/home.css" media="all" />
+        <css src="css/product.css" media="all" />
+        <css src="css/cart.css" media="all" />
+        <css src="css/checkout.css" media="all" />
+        <css src="css/myaccount.css" media="all" />
+        <css src="css/account-requisition.css" media="all" />
+        <css src="css/accountcompany.css" media="all" />
+        <css src="css/other.css" media="all" />
+        <css src="css/storelocator.css" media="all" />
+        <css src="css/header.css" media="all" />
+        <css src="css/footer.css" media="all" />
+        <css src="css/account.css" media="all" />
+        <css src="css/becomeastockist.css" media="all" />
+        <script src="js/js_custom.js"/>
+        <css src="css/slick.css" />
+        <css src="css/slick-theme.css" />
+    </head>
+</page> 

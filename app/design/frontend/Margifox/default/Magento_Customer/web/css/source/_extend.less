@@ -1,0 +1,408 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common =true) {
+    .message.warning {
+        background: #2c3e50;
+        height: auto;
+        padding: 15px 40px 13px 42px;
+        box-sizing: border-box;
+        color: #FFFFFF;
+        font-family: 'Proxima Nova';
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 20px;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -o-border-radius: 3px;
+
+        >*:first-child:before {
+            content: "" !important;
+            color: #fff;
+            height: 18px !important;
+            width: 16px !important;
+            display: inline-block;
+            background-image: url(../images/bell-icon.svg);
+            positon-request: no-request;
+            left: 16px !important;
+            top: 28px !important;
+            position: absolute;
+            background-size: 14px;
+            background-repeat: no-repeat;
+        }
+    }
+
+    input,
+    select {
+        &[style="display: none;"]+.label {
+            display: none;
+        }
+    }
+
+    .account.page-layout-2columns-left .page.messages .error.message {
+        margin: 10px 0 10px;
+    }
+
+    .account.page-layout-2columns-left {
+        &.customer-account-edit {
+            .page-main .page-title-wrapper {
+                margin-bottom: 27px;
+            }
+
+            .column.main .fieldset .legend {
+                padding-bottom: 13px;
+                margin-bottom: 18px;
+            }
+
+            .form-edit-account {
+                display: flex;
+                flex-wrap: wrap;
+
+                .fieldset.info {
+                    margin-right: 0;
+                    margin-bottom: 11px;
+                    width: ~"calc(50% + 14px)";
+                    padding-right: 29px;
+
+                    .field {
+                        &.field-name-firstname {
+                            margin-bottom: 18px;
+                        }
+
+                        &.field-name-lastname {
+                            margin-bottom: 18px;
+                        }
+
+                        &.choice {
+                            margin-bottom: 12px;
+                            display: flex;
+
+                            input#assistance_allowed_checkbox {
+
+                                &+label,
+                                &~.field-tooltip {
+                                    display: none;
+                                }
+                            }
+
+                            .label {
+                                color: #56565A;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+                .fieldset.company,
+                .fieldset.job_title {
+                    display: none;
+                }
+
+                .fieldset.password {
+                    width: ~"calc(50% - 14px)";
+                    margin-bottom: 0;
+
+                    .field {
+                        margin-bottom: 12px;
+
+                        #password-strength-meter-container {
+                            display: none;
+                        }
+
+                        &.required .control label {
+                            display: inline-flex;
+                        }
+                    }
+                }
+
+                fieldset.additional_info {
+                    margin-bottom: 19px;
+                    width: 100%;
+                }
+
+                .actions-toolbar {
+                    margin-bottom: 75px;
+                    width: 100%;
+
+                    button.action.save {
+                        min-width: 94px;
+                    }
+                }
+            }
+        }
+
+        &.customer-address-index {
+            .column.main {
+                min-height: 478px;
+
+                .block {
+                    margin-bottom: 30px;
+
+                    .block-title strong.mb {
+                        display: none;
+                    }
+
+                    .block-content {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .box-title {
+                            margin-bottom: 5px;
+                        }
+
+                        .box.box-address-billing {
+                            width: ~"calc(50% - 44px)";
+                            padding-right: 30px;
+                        }
+
+                        .box.box-address-shipping {
+                            width: ~"calc(50% + 44px)";
+                        }
+
+                        .box-content address a {
+                            color: #56565A;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+
+                            &[href*="tel:"]:before {
+                                content: '';
+                                color: #56565A;
+                                font-family: "Proxima Nova";
+                                font-size: 14px;
+                                letter-spacing: 0;
+                                line-height: 20px;
+                                font-weight: 400;
+                                display: inline-block;
+                                padding-right: 3px;
+                            }
+                        }
+
+                        .box-actions {
+                            display: none;
+                        }
+                    }
+                }
+
+                .link-contact {
+                    width: 100%;
+                    border-radius: 3px;
+                    background-color: #F6EBE7;
+                    padding: 14.5px 18px 13.5px;
+                    margin-bottom: 24px;
+
+                    p {
+                        margin-bottom: 0;
+                        font-weight: 500;
+
+                        &:before {
+                            content: '\f2b9';
+                            color: #5D5350;
+                            font-family: "Font Awesome 5 Pro";
+                            font-size: 15px;
+                            letter-spacing: 0;
+                            line-height: 15px;
+                            padding-right: 9px;
+                            position: relative;
+                            top: 1px;
+                        }
+
+                        a {
+                            color: #312D2C;
+                            font-weight: 500;
+
+                            &:hover {
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.customer-address-form .form-address-edit {
+            fieldset.fieldset {
+                margin-bottom: 0;
+            }
+
+            .control input#zip:not(:placeholder-shown)~label {
+                webkit-transform: translate3d(-3px, -21px, 0);
+                transform: translate3d(-3px, -21px, 0);
+                font-size: 11px;
+                font-weight: 600 !important;
+                letter-spacing: 0;
+                line-height: 13px;
+                color: #AAAAAA;
+                font-family: 'Proxima Nova';
+                background: #FFFFFF;
+                display: inline-block;
+                padding: 0 6px 0 5px;
+            }
+
+            .actions-toolbar {
+                margin-bottom: 24px;
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .account.page-layout-2columns-left {
+            &.customer-address-index .columns {
+                .page-main .page-title-wrapper {
+                    margin-bottom: 12px;
+
+                    h1 {
+                        text-align: center;
+                    }
+                }
+
+                .column.main {
+                    min-height: auto;
+                }
+            }
+
+            &.customer-address-index .page-main .page-title-wrapper {
+                margin-bottom: 12px;
+
+                h1 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .account.page-layout-2columns-left {
+            &.customer-account-edit {
+                .page-main .page-title-wrapper {
+                    margin-bottom: 16px;
+                    margin-top: 8px;
+                }
+
+                .sidebar .block-collapsible-nav .block-collapsible-nav-title:after {
+                    top: 0px;
+                }
+
+                .column.main .fieldset .legend {
+                    padding-bottom: 14px;
+                    margin-bottom: 20px;
+                }
+
+                .form-edit-account {
+                    margin-top: 16px;
+
+                    .fieldset.info {
+                        margin-bottom: 10px;
+                        width: 100%;
+                        padding-right: 0;
+                    }
+
+                    .fieldset.password {
+                        width: 100%;
+                        margin-bottom: 0;
+
+                        .legend {
+                            margin-bottom: 18px;
+                        }
+
+                        .field {
+                            margin-bottom: 18px;
+                        }
+                    }
+
+                    fieldset.additional_info {
+                        margin-bottom: 0;
+                    }
+
+                    .actions-toolbar {
+                        margin-bottom: 13px;
+                    }
+                }
+            }
+
+            &.customer-address-index {
+                .page-main .page-title-wrapper {
+                    margin-bottom: 16px;
+                    margin-top: 8px;
+                }
+
+                .column.main {
+                    .block {
+                        margin-bottom: 8px;
+                        margin-top: 11px;
+
+                        .block-title {
+                            padding-bottom: 12px;
+                            margin-bottom: 14px;
+
+                            strong {
+                                &.mb {
+                                    display: block;
+                                }
+
+                                &:not(.mb) {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        .block-content {
+                            .box.box-address-billing {
+                                width: 100%;
+                                padding-right: 0;
+                            }
+
+                            .box {
+                                margin-bottom: 13px;
+                            }
+
+                            .box-title {
+                                margin-bottom: 4px;
+                            }
+                        }
+                    }
+
+                    .link-contact {
+                        p {
+                            position: relative;
+                            padding-left: 25px;
+                            color: #5D5350;
+                            font-family: Roboto;
+                            font-size: 14px;
+                            font-weight: 500;
+                            letter-spacing: 0;
+                            line-height: 18px;
+
+                            a {
+                                color: #312D2C;
+                                font-family: Roboto;
+                                font-size: 14px;
+                                font-weight: 500;
+                                letter-spacing: 0;
+                                line-height: 18px;
+                            }
+
+                            &:before {
+                                position: absolute;
+                                top: 50%;
+                                left: 0;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-index-index .page-main .page.messages .message-config .message:first-child {
+        margin-top: -63px !important;
+    }
+}

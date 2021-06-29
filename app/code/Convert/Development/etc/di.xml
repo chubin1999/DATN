@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+  ~  Copyright © CONVERT DIGITAL PTY LTD. All rights reserved.
+  ~  See COPYING.txt for license details
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\TwoFactorAuth\Model\TfaSession">
+        <plugin name="convert_development_twofactorauth_session_plugin"
+                type="Convert\Development\Plugin\TfaGranted"/>
+    </type>
+
+    <type name="Magento\User\Model\Backend\Config\ObserverConfig">
+        <plugin name="convert_development_admin_login_plugin"
+                type="Convert\Development\Plugin\AdminLogin"/>
+    </type>
+
+    <type name="Convert\Development\Helper\ConfigHelper">
+        <arguments>
+            <!-- Domains to exclude from 2FA auth -->
+            <argument name="allowedDomains" xsi:type="array">
+                <item name="localhost" xsi:type="string">.localhost</item>
+                <item name="development" xsi:type="string">.convert.build</item>
+            </argument>
+            <!-- Users to exclude from 2FA auth -->
+            <argument name="allowedUsers" xsi:type="array">
+                <item name="convertdigital" xsi:type="string">convertdigital</item>
+            </argument>
+            <!-- Users who should not be enabled on production -->
+            <argument name="restrictedProductionUsers" xsi:type="array">
+                <item name="developer" xsi:type="string">developer</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

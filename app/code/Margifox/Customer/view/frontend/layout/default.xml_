@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link-custom"
+                   template="Convert_Customer::account/link/authorization.phtml"/>
+
+            <block class="Magento\Framework\View\Element\Template" name="become_a_stockist"
+                   template="Convert_Customer::header/become_a_stockist.phtml"/>
+        </referenceContainer>
+
+        <move element="become_a_stockist" destination="header-wrapper" after="logo"/>
+        <move element="top.search" destination="header-wrapper" after="logo"/>
+        <move element="authorization-link-custom" destination="header-wrapper" after="top.search"/>
+        <move element="minicart" destination="header-wrapper" after="authorization-link-custom"/>
+    </body>
+</page>

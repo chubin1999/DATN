@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="brand" resource="default" engine="innodb" comment="Brand">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Brand Id"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="int" name="points_lifetime" unsigned="true" nullable="false" identity="false" comment="Points Lifetime"/>
+        <column xsi:type="int" name="attribute_option_link_id" nullable="true" comment="Link to Attribute Option"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+
+    <table name="company" resource="default" engine="innodb">
+        <column xsi:type="varchar" name="brand" length="255" nullable="true" comment="Brands"/>
+    </table>
+</schema>

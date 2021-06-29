@@ -1,0 +1,11 @@
+"Sort By", "Sort by:", Magento_Theme
+"Payment Information", "Payment details", Magento_Checkout
+"Place Order", "Place order", Magento_Checkout
+"Apply Discount", "Apply discount", Magento_Checkout
+"See Balance", "See balance", Magento_Checkout
+"Add New User","Add new user", Magento_Company
+"Product %1 has been added to the requisition list %2.","Product %1 has been added to the wishlist %2.", Magento_RequisitionList
+"Delete Requisition List","Delete Wishlist", Magento_RequisitionList
+"Delete Requisition List?","Delete Wishlist?", Magento_RequisitionList
+"Cannot delete Requisition List with id %1","Cannot delete Wishlist with id %1", Magento_RequisitionList
+"You have no items in this requisition list.","You have no items in this wishlist.", Magento_RequisitionList

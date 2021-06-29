@@ -1,0 +1,48 @@
+<?php
+/** @var \Margifox\BrandRewardUi\Block\RewardPoints $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<?php $ordersHistory = $block->getOrdersHistory(); ?>
+<?php if ($ordersHistory && count($ordersHistory)) : ?>
+    <?php $orders = $block->getOrders($ordersHistory); ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-loyalty-rewards-table">
+            <caption class="table-caption"><?= $escaper->escapeHtml(__('Loyalty Rewards')) ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col"><?= $escaper->escapeHtml(__('Order #')) ?></th>
+                <th scope="col" class="col"><?= $escaper->escapeHtml(__('Date')) ?></th>
+                <th scope="col" class="col"><?= $escaper->escapeHtml(__('Order Total')) ?></th>
+                <th scope="col" class="col"><?= $escaper->escapeHtml(__('Brand')) ?></th>
+                <th scope="col" class="col"><?= $escaper->escapeHtml(__('Points')) ?></th>
+                <th scope="col" class="col actions"><?= $escaper->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($ordersHistory as $orderHistory) : ?>
+            <?php
+                /** @var \Magento\Sales\Model\Order\Status\History $orderHistory */
+                $order = $block->getOrder($orderHistory->getParentId());
+            ?>
+                <tr>
+                    <td data-th="<?= $escaper->escapeHtml(__('Order #')) ?>" class="col"><?= $escaper->escapeHtml($order->getRealOrderId()) ?></td>
+                    <td data-th="<?= $escaper->escapeHtml(__('Date')) ?>" class="col"><?= $block->formatDate($orderHistory->getCreatedAt()) ?></td>
+                    <td data-th="<?= $escaper->escapeHtml(__('Order Total')) ?>" class="col"><?= $order->getGrandTotal() ?></td>
+                    <td data-th="<?= $escaper->escapeHtml(__('Brand')) ?>" class="col"><?= $block->getBrandName($orderHistory->getComment()) ?></td>
+                    <td data-th="<?= $escaper->escapeHtml(__('Points')) ?>" class="col"><?= $block->getPoints($orderHistory->getComment()) ?></td>
+                    <td data-th="<?= $escaper->escapeHtml(__('Actions')) ?>" class="col actions">
+                        <a href="<?= $escaper->escapeUrl($block->getViewUrl($orderHistory)) ?>" class="action view">
+                            <span><?= $escaper->escapeHtml(__('View Order')) ?></span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $escaper->escapeHtml($block->getEmptyOrdersMessage()) ?></span></div>
+<?php endif ?>

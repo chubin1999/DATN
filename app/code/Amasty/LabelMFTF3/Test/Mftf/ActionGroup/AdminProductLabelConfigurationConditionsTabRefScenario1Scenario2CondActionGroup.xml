@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationConditionsTabRefScenario1Scenario2CondActionGroup">
+        <click selector="{{AdminProductLabelProfileSection.LabelOptionsTab('Conditions')}}"
+               stepKey="clickOnConditionsTab1"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.newCondition}}"
+               stepKey="addNewCondition1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.conditionSelect('1')}}"
+                      userInput="$createConfigProductAttribute1.default_frontend_label$"
+                      stepKey="selectTypeCondition1"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsis('1')}}"
+               stepKey="clickEllipsis1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsisSelect('1','1')}}"
+                      userInput="$getConfigAttributeOption2.value$"
+                      stepKey="selectAttributeOption1"/>
+        <click selector="{{AdminProductLabelProfileSection.SaveAndContinue}}" stepKey="clickSave3"/>
+        <magentoCLI command="indexer:reindex" stepKey="reindex3"/>
+        <magentoCLI command="cache:clean" stepKey="cleanCache3"/>
+    </actionGroup>
+
+</actionGroups>

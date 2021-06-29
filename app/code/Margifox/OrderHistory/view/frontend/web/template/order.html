@@ -1,0 +1,36 @@
+<table>
+    <thead>
+    <tr>
+        <th><span data-bind="i18n: 'Order'"></span></th>
+        <th><span data-bind="i18n: 'Total'"></span></th>
+        <th><span data-bind="i18n: 'Status'"></span></th>
+        <th><span data-bind="i18n: 'Action'"></span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- ko if: orders  -->
+    <!-- ko foreach: { data: orders, as: 'items'}  -->
+    <!-- ko foreach: { data: items, as: 'item'}  -->
+    <tr>
+        <td>
+            <a data-bind="attr: {href: url}, text: increment_id"></a>
+        </td>
+        <td>
+            <span data-bind="html: grand_total"></span>
+        </td>
+        <td>
+            <span data-bind="text: status"></span>
+        </td>
+        <td>
+            <!-- ko if: reorder  -->
+            <a href="#" data-bind="attr: {'data-post': reorder}" class="action order">
+                <span data-bind="i18n: 'Reorder'"></span>
+            </a>
+            <!-- /ko -->
+        </td>
+    </tr>
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- /ko -->
+    </tbody>
+</table>

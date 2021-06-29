@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+
+<?php 
+
+$value_brand = $_product->getData('brand');
+$attribute_brand = $_product->getResource()->getAttribute('brand');
+$label_brand = $value_brand ? $attribute_brand->getSource()->getOptionText($value_brand) : '';
+
+$value_range = $_product->getData('range');
+$attribute_range = $_product->getResource()->getAttribute('range');
+$label_range = $value_brand ? $attribute_range->getSource()->getOptionText($value_range) : '';
+
+
+?>
+<div class="product-info">
+  <div class="brand <?=$label_brand?>"><?=$label_brand?></div>
+  <div class="range"><?=$label_range?></div>
+  <h3 class="name"><?=$_product->getName(); ?></h3>
+  <div class="sku"><?=__('Item code: ').$_product->getSku(); ?></div>
+
+</div>
+

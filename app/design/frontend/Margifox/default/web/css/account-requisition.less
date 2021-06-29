@@ -1,0 +1,841 @@
+.requisition_list-requisition-index{
+    .page-title-wrapper .page-title{
+        display: block;
+        margin-bottom: 0;
+    }
+    .title-actions-links{
+        margin-top: -15px;
+        position: relative;
+        z-index: 2;
+        button{
+            font-size: 14px;
+            line-height: 20px;
+            color: #777;
+            text-decoration: underline;
+            height: auto;
+            &:hover, &:focus, &:active{
+                background-color: transparent;
+            }
+        }
+    }
+    &.page-layout-2columns-left .page-main .column.main .page-title-wrapper{
+        margin-bottom: 0;
+    }
+    .admin__data-grid-outer-wrap{
+        margin-top: 16px;
+    }
+    // .quotes-grid-toolbar.toolbar.bottom{
+    //     display: none;
+    // }
+    .data-grid-wrap.table-wrapper{
+        table{
+            .number-field{
+                text-align: left;
+            }
+            .actions-field{
+                text-align: right;
+                padding-right: 0;
+            }
+            thead{
+                th{
+                    span{
+                        color: #181818;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                    }
+                    &.list-name-field{
+                        width: 64%;
+                    }
+                    &.number-field{
+                        width: 13%;
+                    }
+                    &:nth-child(3){
+                        width: 14%;
+                    }
+                    &.actions-field{
+                        width: 9%;
+                        text-align: right;
+                        padding-right: 0;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        .data-grid-cell-content{
+                            color: #56565A;
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            line-height: 20px;
+                        }
+                        .cell-label-line-name, .cell-label-line-description{
+                            font-size: 14px;
+                            display: inline-block;
+                            margin-top: 0;
+                        }
+                        &.number-field{
+                            padding-left: 10px !important;
+                        }
+                        .cell-label-line-name{
+                            &:after{
+                                content: '';
+                                width: 7px;
+                                height: 1px;
+                                display: inline-block;
+                                background: #56565A;
+                                margin: 0 1px 3px 4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .quotes-grid-toolbar{
+        .limiter{
+            display: flex;
+            align-items: center;
+            .control{
+                width: auto;
+            }
+        }
+    }
+}
+.requisition-popup{
+    &.modal-popup input:hover, &.modal-popup textarea:hover{
+        border-color: #e4e4e4;
+    }
+    &.modal-popup input:active, &.modal-popup textarea:active, &.modal-popup input:focus, &.modal-popup textarea:focus{
+        border-color: #2C3E50;
+    }
+    .modal-inner-wrap{
+        .modal-header{
+            h1{
+                padding-right: 0;
+            }
+            .action-close{
+                padding-top: 9px;
+                margin-right: 0;
+                box-sizing: border-box;
+            }
+        }
+        .modal-content{
+            padding: 0 58px;
+            textarea#requisition-list-description{
+                min-height: 90px;
+            }
+            .fieldset > .field._required{
+                margin-bottom: 18px;
+            }
+        }
+        .modal-footer{
+            display: flex;
+            flex-wrap: wrap;
+            button{
+                width: 100%;
+            }
+            .action.secondary.cancel{
+                color: #777777;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 20px;
+                text-align: center;
+                text-decoration: underline;
+                border: none;
+                background: none;
+                font-weight: 400;
+            }
+            .action.replace{
+                margin-top: 10px;
+                margin-left:0px;
+            }
+        }
+    }
+}
+.requisition_list-requisition-view{
+    .requisition-list-title{
+        margin-bottom: 0;
+        h1{
+            color: #111111;
+            font-size: 24px;
+            letter-spacing: 0;
+            line-height: 28px;
+            margin-right: 25px;
+        }
+        button.edit{
+            font-size: 14px;
+            line-height: 20px;
+            color: #777;
+            font-weight: 400;
+            text-decoration: underline;
+            height: auto;
+            background: none;
+        }
+        .requisition-list-description{
+            color: #56565A;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+            margin-top: 10px;
+        }
+    }
+    &.account.page-layout-2columns-left{
+        @media only screen and (min-width: 768px){
+            .sidebar{
+                padding-bottom: 30px;
+            }
+        }
+        .columns .column.main{
+            margin-bottom: 72px;
+            .block{
+                margin-bottom: 0;
+                margin-left: 17px;
+                &:last-child{
+                    margin-left: 7px;
+                }
+            }
+            .table-wrapper thead th{
+                padding-top: 16px;
+            }
+        }
+    }
+    .requisition-view-links{
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    .requisition-info{
+        display: none;
+    }
+    .requisition-content{
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+    .requisition-toolbar{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        label{
+            color: #56565A;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+        .requisition-toolbar-actions{
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: 0;
+            button{
+                display: flex !important;
+                padding-top: 0;
+                height: auto;
+                padding-right: 0;
+                span{
+                    color: #777777;
+                    font-size: 14px;
+                    letter-spacing: 0;
+                    text-decoration: underline;
+                    line-height: 20px;
+                }
+                &:after{
+                    font-size: 11px;
+                    color: #777;
+                    margin-top: 3px;
+                }
+                &.toggle.active{
+                    &:after{
+                        font-size: 11px;
+                        color: #777;
+                        margin-top: 3px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .requisition-grid{
+        .product-item-description .product-item-details{
+            font-size: 14px;
+        }
+        .mobile{
+            display: none;
+        }
+        table{
+            thead{
+                th{
+                    span{
+                        color: #181818;
+                        font-size: 14px;
+                        font-weight: 500;
+                        letter-spacing: 0;
+                        line-height: 20px;
+                    }
+                    &.product{
+                        width: 53%;
+                    }
+                    &.price{
+                        width: 10%;
+                        text-align: left;
+                    }
+                    &.qty{
+                        width: 14%;
+                        text-align: center;
+                    }
+                    &.subtotal.action{
+                        width: 10%;
+                    }
+                    &.subtotal{
+                        text-align: left;
+                        width: 10%;
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        vertical-align: middle;
+                        &.col.action{
+                            padding-right: 0;
+                        }
+                        .data-grid-cell-content{
+                            color: #56565A;
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            line-height: 20px;
+                        }
+                        .cell-label-line-name, .cell-label-line-description{
+                            font-size: 14px;
+                            display: inline-block;
+                            margin-right: 10px;
+                        }
+                    }
+                    .actions-toolbar{
+                        position: relative;
+                        display: flex;
+                        &>.action{
+                            display: flex;
+                            align-items: center;
+                            > span{
+                                height: auto;
+                                width: auto;
+                                overflow: auto;
+                                position: initial;
+                                color: #777777;
+                                font-size: 14px;
+                                letter-spacing: 0;
+                                line-height: 20px;
+                                margin-left: 7px;
+                                text-decoration: underline;
+                            }
+                        }
+                        > .action-delete{
+                            margin-left: 0;
+                            margin-right: 15px;
+                        }
+                        > .action-delete:before{
+                            font-size: 12px;
+                            color: #777;
+                            font-family: "Font Awesome 5 Pro";
+                            font-size: 14px;
+                            letter-spacing: 0;
+                            line-height: 15px;
+                            content: "\f2ed";
+                            font-weight: 500;
+                            color: #777;
+                        }
+                        > .action-edit{
+                            &:before{
+                                font-family: "Font Awesome 5 Pro";
+                                font-size: 14px;
+                                letter-spacing: 0;
+                                line-height: 15px;
+                                content: "\f303";
+                                font-weight: 500;
+                                color: #777;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .requisition-view-buttons{
+        .primary{
+            button{
+                padding: 0 24px;
+                &.action.primary{
+                    margin-right: 12px;
+                }
+                &.action.delete{
+                    min-width: 175px;
+                }
+            }
+        }
+    }
+    .product-info-container{
+        .product-item-description{
+            width: auto;
+        }
+    }
+    .product-info-container, .product-qty, .product-price, .product-item-subtotal{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .product-qty{
+        justify-content: center;
+        .qty-box{
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            width: 116px;
+            border: 1px solid #e4e4e4;
+            position: relative;
+            div.mage-error{
+                position: absolute;
+                width: 134%;
+                top: 35px;
+                left: -10px;
+                text-align: left;
+            }
+            input{
+                height: 100%;
+                border: none;
+                padding: 2px;
+                text-align: center;
+            }
+            span{
+                display: inline-block;
+                position: relative;
+                cursor: pointer;
+                &:before{
+                    font-family: "Font Awesome 5 Pro";
+                    font-size: 13px;
+                    letter-spacing: 0;
+                    line-height: 15px;
+                    content: "\f068";
+                    font-weight: 500;
+                    color: #999999;
+                    top: 9px;
+                    position: relative;
+                    padding: 10px;
+                }
+                &.plus{
+                    &:before{
+                        content: "\f067";
+                        right: 5px;
+                    }
+                }
+                &.minus{
+                    &:before{
+                        left: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .requisition-grid .item .col.qty .input-text{
+        margin-top: 0;
+    }
+    .product-info-container{
+        input[type="checkbox"] + label{
+            font-size: 0;
+        }
+    }
+    .product-item-description{
+        .brand{
+            color: #91B1C7;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0;
+            line-height: 15px;
+            text-transform: uppercase;
+        }
+        .product-item-name{
+            a{
+                color: #181818;
+                font-size: 14px;
+                letter-spacing: 0;
+                line-height: 20px;
+            }
+        }
+    }
+    .product-price, .product-item-subtotal{
+        .price{
+            color: #56565A;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 20px;
+            font-weight: 400;
+        }
+    }
+
+}
+@media only screen and (max-width: 767px){
+    .requisition_list-requisition-index{
+        .title-actions-links{
+            margin-top: 13px;
+        }
+        .page-main .columns .page-title-wrapper{
+            margin-bottom: 16px;
+            margin-top: 0;
+        }
+        .data-grid-wrap.table-wrapper table .actions-field{
+            .action-menu-item{
+                display: block;
+                padding: 15px 10px 10px 0;
+            }
+        }
+        .quotes-grid-toolbar.toolbar.bottom{
+            .toolbar-amount{
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .limiter{
+                justify-content: center;
+            }
+        }
+        .admin__data-grid-outer-wrap{
+            margin-top: 13px;
+        }
+        &.page-layout-2columns-left{
+            .page-wrapper{
+                .page-main .page-title-wrapper{
+                    margin-bottom: 16px;
+                    margin-top: 7px;
+                }
+                .page-main{
+                    padding: 0 12px;
+                }
+                .sidebar{
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .requisition_list-requisition-view .product-qty .qty-box div.mage-error{
+        width: 160px;
+    }
+    .requisition-popup.modal-popup.modal-slide{
+        left: 0;
+        .modal-inner-wrap{
+            height: auto;
+            min-height: 436px; 
+            background-color: #fff;
+            .modal-content{
+                padding: 0 12px;
+                textarea#requisition-list-description{
+                    min-height: 138px;
+                }
+                .fieldset:last-child{
+                    margin-bottom: 0;
+                }
+                .fieldset > .field{
+                    margin-bottom: 18px;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            .modal-footer{
+                padding-top: 18px;
+               /* margin: auto;*/
+                .action:not(:last-child){
+                    margin-bottom: 0;
+                }
+                .action.replace{
+                   margin-top: 10px;
+                   margin-left: 0px;
+                }
+            }
+        }
+    }
+    .requisition_list-requisition-view.account.page-layout-2columns-left .columns .column.main .block{
+        margin-left: 14px;
+        margin-bottom: 7px;
+    }
+    .requisition_list-requisition-view .requisition-toolbar .requisition-toolbar-actions button:after{
+        margin-left: 4px;
+    }
+    .requisition_list-requisition-view{
+        &.account.page-layout-2columns-left .column.main .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr:first-child > td:first-child{
+            padding-top: 0 !important;
+        }
+        &.account.page-layout-2columns-left .column.main .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr > td:first-child{
+            padding-top: 0 !important;
+        }
+        .requisition-tilte-box{
+            width: 100%;
+            position: relative;
+            margin-top: 14px;
+            .requisition-view-links, button.edit{
+                position: absolute;
+                top: 15px;
+                margin-top: 0;
+                right: 0;
+            }
+            button.edit{
+                right: 50px;
+                top: 13px;
+            }
+        }
+        .requisition-list-title{
+            h1{
+                margin-bottom: 10px;
+            }
+            .requisition-list-description{
+                color: #444;
+                margin-top: 11px;
+                margin-bottom: 5px;
+            }
+        }
+        .block-requisition-management{
+            margin-top: 6px;
+        }
+        .product-qty .qty-box span:before{
+            top: 6px;
+        }
+        .requisition-toolbar{
+            .requisition-toolbar-actions{
+                margin-bottom: 0;
+                .mobile-label{
+                    display: none;
+                }
+            }
+        }
+        .block-requisition-management .requisition-toolbar-actions button.action:before, 
+        .block-requisition-management .requisition-toolbar-actions .quote-details-items .actions-toolbar > .action.action:before{
+            color: #777;
+            text-decoration: underline;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .product-qty .qty-box{
+            width: 98px;
+        }
+        &.account.page-layout-2columns-left .columns .column.main{
+            margin-bottom: 18px;
+        }
+        .requisition-content{
+            margin-bottom: 0;
+            margin-top: 7px;
+        }
+        .table-wrapper{
+            border-top: 1px solid #e4e4e4;
+            padding-top: 18px;
+        }
+        .requisition-grid{
+            .product-info-container{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                padding-bottom: 31px;
+                margin-bottom: 18px;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                >.product-checkbox, >.product-item-image, >.product-item-description{
+                    display: none !important;
+                }
+                .image-container-mobile{
+                    width: 20%;
+                    .product-item-image{
+                        display: block;
+                    }
+                }
+                .depcription-mobile{
+                    width: 80%;
+                    padding-left: 10px;
+                    .product-item-description{
+                        width: 80%;
+                    }
+                    .action-mobile{
+                        width: 20%;
+                        position: absolute;
+                        top: -5px;
+                        right: 0;
+                        .actions-toolbar {
+                            display: inline-block;
+                            float: right;
+                            padding: 0 12px 0 0;
+                            button {
+                                margin: 0;
+                                display: inline-block;
+                                height: auto;
+                            }
+                            .action.action-edit {
+                                margin-left: 14px;
+                            }
+                        }
+                    }
+                    .price-mobile, .qty-mobile, .subtotal-mobile{
+                        width: 33%;
+                        float: left;
+                    }
+                }
+            }
+            table tbody tr .actions-toolbar{
+                justify-content: flex-end;
+                > .action > span{
+                    display: none;
+                }
+            }
+            .mobile{
+                display: block;
+            }
+            .mobile-label{
+                display: block;
+                color: #181818;
+                font-size: 14px;
+                font-weight: 500;
+                letter-spacing: 0;
+                line-height: 20px;
+                width: 100%;
+            }
+            table{
+                tbody{
+                    td{
+                        &.price, &.qty, &.subtotal, &.action{
+                            display: none !important;
+                        }
+                        &:before{
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 640px){
+    .account.page-layout-2columns-left.requisition_list-requisition-index{
+        .column.main {
+            .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr:first-child > td:first-child{
+                padding-top: 11px !important;
+            }
+            .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) > tbody > tr td[data-th]:before{
+                width: 125px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 639px){
+    .requisition_list-requisition-index{
+        .title-actions-links{
+            text-align: left;
+        }
+        .table-wrapper{
+            border-top: 1px solid #eee;
+        }
+        .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr > td:last-child{
+            border-bottom: 1px solid #eee;
+        }
+        .data-grid-wrap.table-wrapper table .actions-field{
+            text-align: left;
+            &::before{
+                display: none !important;
+            }
+        }
+        .data-grid-wrap.table-wrapper table tbody tr td{
+            display: flex !important;
+            padding-left: 0 !important;
+            .cell-label-line-name:after{
+                display: none;
+            }
+            .cell-label-line-description{
+                display: block;
+                word-break: break-word;
+            }
+        } 
+        .data-grid-wrap.table-wrapper table tbody tr td.number-field{
+            padding-left: 0 !important;
+        }
+        .data-grid-wrap.table-wrapper table tbody tr td .data-grid-cell-content{
+            line-height: 28px;
+        }  
+        .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr:last-child > td:last-child{
+            border-bottom: none;
+        }
+        &.page-layout-2columns-left{
+            .page-wrapper{
+                .column.main .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr:first-child > td:first-child{
+                    padding-top: 5px !important;
+                }
+                .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) > tbody > tr td{
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .requisition_list-requisition-view{
+        .requisition-grid{
+            margin-left: 0;
+            margin-right: 0;
+            .item .col .actions-toolbar{
+                float: none;
+                margin-top: 0;
+                padding-right: 13px;
+                box-sizing: border-box;
+                > .action-edit, > .action-delete{
+                    position: initial;
+                }
+            }
+            .product-info-container{
+                .depcription-mobile{
+                    .price-mobile, .subtotal-mobile{
+                        width: 27%;
+                        float: left;
+                    }
+                    .qty-mobile{
+                        width: 46%;
+                        float: left;
+                    }
+                }
+            }
+        }
+        .requisition-grid thead .col .price, .requisition-grid .item .col .price{
+            font-size: 14px;
+            margin-right: 0;
+        }
+    }
+    .requisition-popup.modal-popup.modal-slide{
+        .modal-inner-wrap{
+            .modal-footer{
+                .action.replace{
+                    margin-left: 0;
+                    margin-top: 15px;
+                }
+                .action.secondary.cancel{
+                    margin-left: 0;
+                }
+            }
+        }
+    }  
+}
+@media only screen and (max-width: 374px){
+    .requisition_list-requisition-index{
+        &.account.page-layout-2columns-left .column.main .table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) > tbody > tr td[data-th]:before{
+            width: 130px;
+        }
+    }
+}
+@media(max-width: 767px) {
+    .requisition_list-requisition-view {
+        .requisition-list-title {
+            h1 {
+                width: 65%;
+                word-break: break-all;
+            }
+        }
+        .requisition-view-links {
+            padding-top: 0;
+            margin: 0;
+            position: absolute;
+            right: 12px;
+            top: 27px;
+        }
+    }
+}

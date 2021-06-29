@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+$helper = $this->helper('Margifox\Customer\Helper\Data');
+?>
+
+<?php if(!$helper->getLogin()) : ?>
+	<?php 
+		echo $this->getLayout()
+	          ->createBlock('Magento\Cms\Block\Block')
+	          ->setBlockId('become_a_stockist')
+	          ->toHtml();
+	?>
+<?php endif;?>

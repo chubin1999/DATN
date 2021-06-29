@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+$helper = $this->helper('Convert\Customer\Helper\Data');
+$customerName = $helper->getCustomerName();
+
+$dataPostParam = '';
+if ($block->isLoggedIn()) {
+    $dataPostParam = sprintf(" data-post='%s'", $block->getPostParams());
+}
+?>
+<?php if(!$helper->getLogin()) : ?>
+	<div class="authorization-link" data-label="<?= $block->escapeHtml(__('or')) ?>">
+		<div class="top">
+			
+		    <a class="signin" <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?>>
+		        <?= __('Sign in ') ?>
+		    </a>
+
+		    <span>/</span>
+
+		    <a class="join" <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?>>
+		        <?= __(' Join') ?>
+		    </a>
+		</div>
+		
+		<div class="bot">
+		    <a <?= /* @noEscape */ $block->getLinkAttributes() ?><?= /* @noEscape */ $dataPostParam ?>>
+		        <?= __('My Account') ?>
+		    </a>
+		</div>
+	</div>
+	<?php else : ?>
+	<div class="authorization-link" data-label="<?= $block->escapeHtml(__('or')) ?>">
+		<div class="top">
+		    <?= __('Hello, ').$customerName ;?>
+		</div>
+		
+		<div class="bot">
+		    <a href="<?=$this->getUrl('customer/account/');?>">
+		        <?= __('View Account') ?>
+		    </a>
+		</div>
+	</div>	
+<?php endif;?>

@@ -1,0 +1,168 @@
+.brand-reward-section {
+    width: 100%;
+    max-width: 422px;
+    background-color: #FFFFFF;
+
+    h4 {
+        margin-top: 0;
+    }
+}
+
+.brand-reward-stepper-horizontal {
+    display: table;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+
+    .level {
+        display: table-cell;
+        position: relative;
+        padding: 24px;
+
+        .level-circle {
+            width: 24px;
+            height: 24px;
+            margin: 0 auto;
+            background-color: #DDDDDD;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #999999;
+            margin-top: 10px;
+        }
+
+        .level-icon {
+            font-size: 18px;
+        }
+
+        .level-level-title {
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .level-icon,
+        .level-level-title,
+        .level-optional {
+            text-align: center;
+        }
+
+        .level-optional {
+            font-size: 12px;
+        }
+
+        .level-icon:before {
+            font-family: 'Font Awesome 5 Pro';
+            font-weight: 600;
+            content: "\f5a2";
+        }
+
+        .level-bar-left {
+            left: 0;
+            right: 50%;
+            margin-right: 12px;
+        }
+
+        .level-bar-right {
+            right: 0;
+            left: 50%;
+            margin-left: 12px;
+        }
+    }
+
+}
+
+.brand-reward-stepper-horizontal .level:hover .level-circle {
+    background-color: #757575;
+}
+
+.brand-reward-stepper-horizontal .level:first-child .level-bar-left,
+.brand-reward-stepper-horizontal .level:last-child .level-bar-right {
+    display: none;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-circle,
+.brand-reward-stepper-horizontal .level.done .level-circle {
+    background-color: #91B1C7;
+}
+
+.brand-reward-stepper-horizontal .level.done .level-circle * {
+    display: none;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-circle {
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    width: 30px;
+    height: 30px;
+    background-color: #91B1C7;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px white;
+    border: 1px solid #91B1C7;
+    margin: 7px auto 0 auto;
+}
+
+
+.brand-reward-stepper-horizontal .level.current .level-level-title {
+    font-weight: 600;
+}
+
+
+.brand-reward-stepper-horizontal .level .level-bar-left,
+.brand-reward-stepper-horizontal .level .level-bar-right {
+    position: absolute;
+    top: 113px;
+    height: 3px;
+    border-top: 3px solid #DDDDDD;
+}
+
+.brand-reward-stepper-horizontal .level.done .level-bar-left,
+.brand-reward-stepper-horizontal .level.done .level-bar-right {
+    border-top: 3px solid #91B1C7;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-bar-left {
+    border-top: 3px solid #91B1C7;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-bar-right {
+    right: 0;
+    left: 50%;
+    margin-left: 15px;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-bar-left {
+    left: 0;
+    right: 50%;
+    margin-right: 15px;
+}
+
+.brand-reward-stepper-horizontal .level.current .level-icon {
+    color: rgb(233,195,0);
+}
+
+.brand-level-info {
+    border-bottom: 1px solid #ebe8e8;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 0;
+}
+
+.brand-level-info h4 {
+    padding-top: 20px;
+}
+
+.brand-level-info h4:before {
+    content: '\f559';
+    font-weight: 900;
+    color: #91B1C7;
+    font-family: "Font Awesome 5 Pro";
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-right: 10px;
+}

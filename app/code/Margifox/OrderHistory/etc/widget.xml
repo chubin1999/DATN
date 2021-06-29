@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="order-history" class="Margifox\OrderHistory\Block\OrderHistory">
+        <label translate="true">Order History</label>
+        <description>Order History</description>
+        <parameters>
+            <parameter xsi:type="text" name="limit" visible="true" sort_order="1">
+                <label translate="true">Limit Order</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

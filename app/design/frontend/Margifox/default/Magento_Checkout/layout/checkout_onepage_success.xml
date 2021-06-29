@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-top" remove="true" />
+		<referenceContainer name="footer-middle" remove="true" />
+		<referenceBlock name="checkout.success.print.button" remove="true" />
+		<referenceContainer name="content">
+			<container name="checkout.success.banner" label="Checkout Success Banner" htmlTag="div" htmlClass="checkout-success-banner">
+				<block class="Magento\Cms\Block\Block" name="checkout_onepage_success_banner">
+					<arguments>
+						<argument name="block_id" xsi:type="string">checkout_onepage_success_banner</argument>
+					</arguments> 
+				</block>
+			</container>
+			<container name="checkout.success.content" label="Checkout Success Content" htmlTag="div" htmlClass="checkout-success-content"/>
+		</referenceContainer>
+		<referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">Order Complete</argument>
+            </action>
+        </referenceBlock>
+		<move element="page.main.title" destination="checkout.success.content" before="-"/>
+		<move element="checkout.success" destination="checkout.success.content" after="page.main.title"/>
+		<move element="checkout.registration" destination="checkout.success.content" after="checkout.success"/>
+		
+    </body>
+</page>

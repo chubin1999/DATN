@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Smile\ElasticsuiteCatalog\Model\Autocomplete\Product\ItemFactory">
+        <plugin name="custom_search_data" type="Margifox\Search\Plugin\Autocomplete\Product\afterItemFactory"/>
+    </type>
+    <preference for="Magento\Search\Controller\Ajax\Suggest"
+                type="Margifox\Search\Controller\Ajax\Suggest" />
+    <preference for="Smile\ElasticsuiteCatalog\Model\Autocomplete\Product\DataProvider"
+                type="Margifox\Search\Model\Autocomplete\Product\DataProvider"/>
+</config>

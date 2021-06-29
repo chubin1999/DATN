@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="24px" viewBox="0 0 22 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>C9760FFD-849B-443A-88F3-009A1C17E3A6</title>
+    <g id="Style-Guide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="styleguide_v01" transform="translate(-99.000000, -1774.000000)" stroke="#181818" stroke-width="2">
+            <g id="Icons" transform="translate(100.000000, 1773.000000)">
+                <g id="account-icon-black" transform="translate(0.000000, 2.000000)">
+                    <path d="M20,22 L20,19.3333333 C20,16.3878147 17.7614237,14 15,14 L5,14 C2.23857625,14 0,16.3878147 0,19.3333333 L0,22" id="Path"></path>
+                    <circle id="Oval" cx="10" cy="5" r="5"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

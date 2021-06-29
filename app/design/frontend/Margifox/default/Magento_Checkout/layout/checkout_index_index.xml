@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="page.wrapper">
+        <container name="checkout.footer.container" as="checkout_footer_container" label="Checkout Page Footer Container" htmlTag="footer" htmlClass="page-footer" after="-">
+            <container name="checkout.footer.wrapper" label="Checkout Page Footer" as="checkout_footer_wrapper" htmlTag="div" htmlClass="footer content"/>
+        </container>
+    </referenceContainer>
+    <move element="copyright" destination="checkout.footer.wrapper"/>
+    <block class="Magento\Framework\View\Element\Template" name="checkout.cart.link" template="Magento_Checkout::cart/link.phtml" />
+    <move element="checkout.cart.link" destination="checkout.header.wrapper" before="-"/>
+    <referenceBlock name="checkout.root">
+        <arguments>
+            <argument name="jsLayout" xsi:type="array">
+                <item name="components" xsi:type="array">
+                    <item name="checkout" xsi:type="array">
+                        <item name="children" xsi:type="array">
+                            <item name="steps" xsi:type="array">
+                                <item name="children" xsi:type="array">
+                                    <item name="shipping-step" xsi:type="array">
+                                        <item name="children" xsi:type="array">
+                                            <item name="shippingAddress" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                    <item name="before-form" xsi:type="array">
+                                                        <item name="children" xsi:type="array">
+                                                            <!-- before form fields -->
+                                                            <item name="contact-us" xsi:type="array">
+                                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                                <item name="displayArea" xsi:type="string">contact-us</item>
+                                                                <item name="config" xsi:type="array">
+                                                                    <item name="template" xsi:type="string">Magento_Checkout/shipping/contact-us</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="sidebar" xsi:type="array">
+                                <item name="children" xsi:type="array">
+                                    <item name="summary" xsi:type="array">
+                                        <item name="children" xsi:type="array">
+                                            <item name="totals" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                    <item name="subtotal" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="title" xsi:type="string" translate="true">Subtotal</item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="grand-total" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="title" xsi:type="string" translate="true">Grand Total</item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="tax" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="title" xsi:type="string" translate="true">GST</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                            <item name="cart_items" xsi:type="array">
+                                                <item name="sortOrder" xsi:type="string">0</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="details" xsi:type="array">
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="subtotal" xsi:type="array">
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="weee_row_incl_tax" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/summary/item/price/row_incl_tax</item>
+                                                                    <item name="displayArea" xsi:type="string">row_incl_tax</item>
+                                                                    </item>
+                                                                    <item name="weee_row_excl_tax" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">Magento_Checkout/js/view/summary/item/price/row_excl_tax</item>
+                                                                        <item name="displayArea" xsi:type="string">row_excl_tax</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </referenceBlock>
+</body>
+</page>
+

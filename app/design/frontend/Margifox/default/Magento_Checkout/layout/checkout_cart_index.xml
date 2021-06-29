@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceBlock name="checkout.cart.totals">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-totals" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="grand-total" xsi:type="array">
+                                    <item name="config" xsi:type="array">
+                                        <item name="title" xsi:type="string" translate="true">Grand Total</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="cart.summary">
+            <block class="Magento\Cms\Block\Block" name="shopping-cart-summary-bottom" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">shopping-cart-summary-bottom</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Magento\Cms\Block\Block" name="shopping-cart-top" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">shopping-cart-top</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="button.checkout.mobile" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">button-checkout-mobile</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="checkout.cart.order.actions.gift_options" remove="true" />
+        <referenceBlock name="checkout.cart.giftcardaccount" remove="true" />
+        <move element="checkout.cart.coupon" destination="cart.summary" before="-"/>
+        <move element="button.checkout.mobile" destination="page.main.title" before="-"/>
+    </body>
+</page>

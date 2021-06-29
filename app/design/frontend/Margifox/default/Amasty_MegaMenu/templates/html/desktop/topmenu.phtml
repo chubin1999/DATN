@@ -1,0 +1,116 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+/** @var \Amasty\MegaMenu\Block\Html\Topmenu $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$helper_customer = $this->helper('Margifox\Customer\Helper\Data');
+?>
+
+<section class="ammenu-menu-wrapper -desktop -icons-<?= $escaper->escapeHtmlAttr($block->getIconStatus()) ?>"
+         data-ammenu-js="desktop-menu"
+         data-mage-init='{
+                "amastyMegaMenu":{
+                    "stickyStatus": <?= $escaper->escapeHtml($block->getStickyState()); ?>,
+                    "desktopStatus": 1
+                }
+            }'>
+    <nav class="ammenu-main-container" data-action="navigation">
+        <ul class="ammenu-items">
+            <?php
+            foreach ($block->getMainNodes() as $mainNode):
+                if (!$block->isNeedDisplay($mainNode->getId(), $mainNode->getStatus(), $block::DESKTOP_VIEW)) {
+                    continue;
+                }
+
+                $add_class = '';
+
+                if(array_key_exists('add_menu_login', $mainNode->getData())) {
+                        if($mainNode->getData('add_menu_login') == 1) {
+                            $add_class = 'login-show';
+                        }
+                }
+
+                if(array_key_exists('add_menu_login', $mainNode->getData())) {
+                        if($mainNode->getData('add_menu_login') == 0) {
+                            $add_class = 'logout-show';
+                        }
+                }
+     
+                $url = $mainNode->getUrl() ?: '#';
+                $widthMode = $escaper->escapeHtml($block->getWidth($mainNode));
+                $mainNodeHtml = $block->getChildBlock('submenu')->setData('mainNode', $mainNode)->toHtml();
+                ?>
+                <li class="ammenu-item category-item -main -<?= $escaper->escapeHtml($widthMode); ?>
+                    <?= $escaper->escapeHtml($block->getHighLightClass($mainNode)); ?>
+                    <?= $escaper->escapeHtml($mainNode->getPositionClass()); ?>
+                    <?= $add_class; ?>">
+                    <?php if ( $escaper->escapeHtml($mainNode->getName()) == 'CHAT' || $escaper->escapeHtml($mainNode->getName()) == 'Chat') : ?>
+                        <a id="click-to-chat__cta--text" onclick="window.HubSpotConversations.widget.open();" class="black-link ammenu-link -main<?= ($mainNodeHtml) ? ' -parent' : '' ?>"
+                           title="<?= $escaper->escapeHtml($mainNode->getName()); ?>">
+                            <?php if ($block->getIcon($mainNode)): ?>
+                                <figure class="ammenu-icon-block"
+                                        style="
+                                                -webkit-mask-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>);
+                                                mask-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>);
+                                                background-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>)">
+                                </figure>
+                            <?php endif;?>
+                            <?= $escaper->escapeHtml($mainNode->getName()); ?>
+                            <?php if ($label = $mainNode->getLabel()): ?>
+                                <span class="ammenu-label"
+                                      style="color: <?= $escaper->escapeHtml($mainNode->getLabelTextColor() ?: '#000') ?> !important;background-color: <?= $escaper->escapeHtml($mainNode->getLabelBackgroundColor() ?: '#fff') ?> !important;">
+                                    <?= $escaper->escapeHtml($label); ?>
+                                </span>
+                            <?php endif; ?>
+                        </a>
+                    <?php else: ?>  
+                        <a class="ammenu-link -main<?= ($mainNodeHtml) ? ' -parent' : '' ?>"
+                           href="<?= $escaper->escapeUrl($url) ?>"
+                           title="<?= $escaper->escapeHtml($mainNode->getName()); ?>">
+                            <?php if ($block->getIcon($mainNode)): ?>
+                                <figure class="ammenu-icon-block"
+                                        style="
+                                                -webkit-mask-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>);
+                                                mask-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>);
+                                                background-image: url(<?= $escaper->escapeUrl($block->getIcon($mainNode)) ?>)">
+                                </figure>
+                            <?php endif;?>
+                            <?= $escaper->escapeHtml($mainNode->getName()); ?>
+                            <?php if ($label = $mainNode->getLabel()): ?>
+                                <span class="ammenu-label"
+                                      style="color: <?= $escaper->escapeHtml($mainNode->getLabelTextColor() ?: '#000') ?> !important;background-color: <?= $escaper->escapeHtml($mainNode->getLabelBackgroundColor() ?: '#fff') ?> !important;">
+                                    <?= $escaper->escapeHtml($label); ?>
+                                </span>
+                            <?php endif; ?>
+                        </a>
+                    <?php endif; ?>
+                    <?= /* @noEscape */ $mainNodeHtml ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+</section>
+
+
+
+<style type="text/css">
+    body.logout .ammenu-tabs-container .ammenu-menu-wrapper .ammenu-main-container .ammenu-items li.logout-show {
+        display: block;
+    }
+    body.logout .ammenu-tabs-container .ammenu-menu-wrapper .ammenu-main-container .ammenu-items li.login-show {
+        display: none;
+    }
+
+    body.logged .ammenu-tabs-container .ammenu-menu-wrapper .ammenu-main-container .ammenu-items li.logout-show {
+        display: none;
+    }
+    body.logged .ammenu-tabs-container .ammenu-menu-wrapper .ammenu-main-container .ammenu-items li.login-show {
+        display: block;
+    }
+</style>

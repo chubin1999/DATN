@@ -1,0 +1,21 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Company\Block\Company\Login\Info */ ?>
+<?php if ($block->getRegistration()->isAllowed()) : ?>
+<div class="block block-new-company">
+    <div class="block-content" aria-labelledby="block-new-company-heading">
+        <div class="actions-toolbar">
+            <div class="primary">
+                <a href="<?= $this->getUrl('become-a-stockist') ?>"
+                   class="action create primary">
+                    <span><?= $block->escapeHtml(__('Register and become a stockist')) ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

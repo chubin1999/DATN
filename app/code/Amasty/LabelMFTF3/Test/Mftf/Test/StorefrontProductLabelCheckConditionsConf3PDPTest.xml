@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+
+    <test name="StorefrontProductLabelCheckConditionsConf3PDPTest"
+          extends="StorefrontProductLabelCreationPDPTest">
+
+        <annotations>
+            <features value="Amasty Product Labels"/>
+            <stories value="Product Label creation and application"/>
+            <title value="Product Label creation and application checking"/>
+            <description
+                    value="Check that Product Label is created correctly and applied on products in accordance with it Conditions configuration #3 on Product Detail Page"/>
+            <severity value="MAJOR"/>
+            <testCaseId value="PRODLAB-14"/>
+            <group value="Amasty"/>
+            <group value="ProdLab"/>
+            <group value="ProdLabSmoke"/>
+        </annotations>
+
+        <before>
+            <createData entity="productAttributeWithTwoOptions"
+                        stepKey="createConfigProductAttribute2"
+                        after="createConfigProductAttribute1"/>
+            <createData entity="productAttributeOption3"
+                        stepKey="createConfigProductAttributeOption3"
+                        after="createConfigProductAttributeOption2">
+                <requiredEntity createDataKey="createConfigProductAttribute2"/>
+            </createData>
+            <createData entity="AddToDefaultSet" stepKey="addToDefaultAttributeSet2"
+                        after="addToDefaultAttributeSet1">
+                <requiredEntity createDataKey="createConfigProductAttribute2"/>
+            </createData>
+            <getData entity="ProductAttributeOptionGetter" index="1" stepKey="getConfigAttributeOption3"
+                     after="getConfigAttributeOption2">
+                <requiredEntity createDataKey="createConfigProductAttribute2"/>
+            </getData>
+            <createData entity="TestSimpleProductB1" stepKey="createSimpleProductB1">
+                <requiredEntity createDataKey="createTestCategory1"/>
+                <requiredEntity createDataKey="createConfigProductAttribute2"/>
+                <requiredEntity createDataKey="getConfigAttributeOption3"/>
+            </createData>
+            <createData entity="TestSimpleProductB2" stepKey="createSimpleProductB2"
+                        after="createSimpleProductB1">
+                <requiredEntity createDataKey="createTestCategory1"/>
+                <requiredEntity createDataKey="createConfigProductAttribute2"/>
+                <requiredEntity createDataKey="getConfigAttributeOption3"/>
+            </createData>
+            <actionGroup ref="AdminProductLabelConfigurationConditionsTabRefScenario3Scenario4CondActionGroup"
+                         stepKey="configureProductLabelCondition1">
+            </actionGroup>
+        </before>
+
+        <after>
+            <deleteData stepKey="deleteSimpleProductB2" createDataKey="createSimpleProductB2"
+                        after="deleteSimpleProductB1"/>
+            <deleteData stepKey="deleteConfigProductAttribute2" createDataKey="createConfigProductAttribute2"/>
+        </after>
+
+        <comment
+                userInput="Navigate to Product Detail Page. Check that Product Label is displayed  in accordance with it Conditions configuration #3 on Product Detail Page"
+                stepKey="testActivitiesComment"/>
+
+        <dontSeeElement
+                selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+                stepKey="seeProductLabels1"/>
+        <amOnPage url="$createSimpleProductB2.custom_attributes[url_key]$.html"
+                  stepKey="navigateToRequiredPage3"/>
+        <waitForPageLoad stepKey="waitForPageLoad3"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+                userInput="1"
+                stepKey="seeProductLabels3"/>
+
+    </test>
+</tests>
+

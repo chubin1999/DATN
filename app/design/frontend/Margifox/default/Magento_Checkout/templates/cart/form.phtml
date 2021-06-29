@@ -1,0 +1,151 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/**  @var $block \Magento\Checkout\Block\Cart\Grid */
+?>
+<?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
+<?= $block->getChildHtml('form_before') ?>
+<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
+          method="post"
+          id="form-validate"
+          data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
+              {"validationURL" : "<?= $block->escapeUrl($block->getUrl('checkout/cart/updateItemQty')) ?>",
+              "updateCartActionContainer": "#update_cart_action_container"}
+          }'
+          class="form form-cart">
+    <?= $block->getBlockHtml('formkey') ?>
+    <div class="cart table-wrapper<?= $mergedCells == 2 ? ' detailed' : '' ?>">
+        <?php if ($block->getPagerHtml()) :?>
+            <div class="cart-products-toolbar cart-products-toolbar-top toolbar"
+                 data-attribute="cart-products-toolbar-top"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+        <table id="shopping-cart-table"
+               class="cart items data table"
+               data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
+               "updateCartActionContainer": "#update_cart_action_container"}}'>
+            <caption class="table-caption"><?= $block->escapeHtml(__('Shopping Cart Items')) ?></caption>
+            <thead>
+                <tr>
+                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Product')) ?></span></th>
+                    <th class="col price" scope="col"><span><?= $block->escapeHtml(__('Unit Price')) ?></span></th>
+                    <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
+                    <th class="col subtotal" scope="col"><span><?= $block->escapeHtml(__('Total')) ?></span></th>
+                </tr>
+            </thead>
+            <?php foreach ($block->getItems() as $_item) :?>
+                <?= $block->getItemHtml($_item) ?>
+            <?php endforeach ?>
+        </table>
+        <?php if ($block->getPagerHtml()) :?>
+            <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar"
+                 data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+    </div>
+    <div class="cart main actions">
+        <?php if ($block->getContinueShoppingUrl()) :?>
+            <a class="action continue"
+               href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
+               title="<?= $block->escapeHtml(__('Continue Shopping')) ?>">
+                <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
+            </a>
+        <?php endif; ?>
+        <button type="button"
+                name="update_cart_action"
+                data-cart-empty=""
+                value="empty_cart"
+                title="<?= $block->escapeHtml(__('Clear cart')) ?>"
+                class="action clear" id="empty_cart_button">
+            <span><?= $block->escapeHtml(__('Clear cart')) ?></span>
+        </button>
+        <button type="submit"
+                name="update_cart_action"
+                data-cart-item-update=""
+                value="update_qty"
+                title="<?= $block->escapeHtml(__('Update shopping cart')) ?>"
+                class="action update">
+            <span><?= $block->escapeHtml(__('Update shopping cart')) ?></span>
+        </button>
+        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+    </div>
+</form>
+<?= $block->getChildHtml('checkout.cart.order.actions') ?>
+<?= $block->getChildHtml('shopping.cart.table.after') ?>
+
+<script type="text/javascript">
+    require(['jquery'], function($) {
+        var formcart = $(".form.form-cart");
+
+        formcart.on('click', '[data-update="updatecart"]', function (event) {
+            event.stopPropagation();
+
+            var input = $(this).parent().find("input");
+            var value = parseInt(input.val());
+
+            $(this).addClass('active');
+            $('.btn-update').addClass('active');
+
+            if ($(this).hasClass('minus') && value > 1) {
+                $(this).parent().addClass('disable');
+                input.val(value - 1);
+                input.change();
+            }
+
+            if ($(this).hasClass('plus')) {
+                $(this).parent().addClass('disable');
+                input.val(value + 1);
+                input.change();
+            }
+
+        });
+        formcart.find('input[data-role="cart-item-qty"]').removeAttr('disabled');
+        formcart.find('input[data-role="cart-item-qty"]').change(function () { 
+
+            var id = '#'+$(this).attr('id')+'-error';
+            if($(this).hasClass('mage-error')){
+                $(this).removeClass('mage-error');
+            }
+            $(id).remove();
+            // cart-270-qty-error
+
+            if(!$('.btn-update').hasClass('active')){
+                $('.btn-update').addClass('active');
+            }
+
+            if($(this).val() <= 0 ) {
+            $(this).val(1);
+            }
+
+            $(this).parents('.control.qty').find('.btn-update.active').css('display','block');
+        });
+
+        formcart.on('click', '.btn-update', function (event) {
+            
+            var qty_val = $(this).parents('.control.qty').find('input[data-role="cart-item-qty"]').val();
+            if(qty_val <= 0) {
+                $(this).css('display','none');
+            }
+
+            $('.btn-update').removeClass('active');
+            $('.checkout-cart-index .form-cart button.action.update').trigger('click');
+        });
+
+        formcart.find('input').on('change', function() {
+            $('.form.form-cart .btn-update').addClass('active');
+        });
+
+        function _initDisable(elm) {
+            $(elm).prop('disabled', true);
+        }
+
+        function _initEnable(elm) {
+            $(elm).prop('disabled', false);
+        }
+    });
+</script>

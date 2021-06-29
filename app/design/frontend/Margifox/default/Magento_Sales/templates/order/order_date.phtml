@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$created_at = $block->getOrder()->getCreatedAt();
+$newDate = date("F j, Y", strtotime($created_at));
+?>
+<div class="order-date">
+    <?= $block->escapeHtml(
+        __(
+            '<span class="label">Order Date:</span> %1',
+            '<span>' . $newDate . '</span>'
+        ),
+        ['span']
+    )?>
+</div>

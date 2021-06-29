@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<?= $block->escapeHtml(__(
+    '<div class="mes-shopping">
+    	<div class="h-sticky">
+	    	<span>%1 has been added to your shopping cart. </span>
+	    	<span>Item added to your cart. </span>
+	    	<a href="%2"><span>View shopping cart</span><span>View cart</span></a>
+	    </div>
+    </div>',
+    $block->getData('product_name'),
+    $block->getData('cart_url')
+), ['div','p','a','span']);

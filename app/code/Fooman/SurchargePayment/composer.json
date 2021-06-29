@@ -1,0 +1,30 @@
+{
+    "name": "fooman/surcharge-payment-implementation-m2",
+    "description": "Add a Surcharge based on the chosen Payment Method",
+    "type": "magento2-module",
+    "version": "106.1.3",
+    "require": {
+        "php": "7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0|~7.3.0|~7.4.0",
+        "fooman/surcharge-core-m2": "^11.0.4",
+        "fooman/totals-m2": "^9.0.0",
+        "magento/framework": "^101.0.0 | ^102.0.0 | ^103.0.0",
+        "magento/module-backend": "^100.2.0 | ^101.0.0 | ^102.0.0",
+        "magento/module-quote": "~101.0.0 | ~101.1.0 | ~101.2.0",
+        "magento/module-payment": "^100.2.0",
+        "magento/module-store": "^100.1.0 | ^101.0.0",
+        "magento/module-checkout": "^100.2.0",
+        "magento/module-checkout-agreements": "^100.2.0",
+        "ext-json": "*"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Fooman\\SurchargePayment\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

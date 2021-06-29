@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+
+    <entity name="ProductLabelGeneralTabDefault" type="product_label">
+        <data key="NameField">Test Product Label 1</data>
+        <data key="StatusSwitcher">1</data>
+        <data key="PriorityField">1</data>
+        <data key="HideIfHigherPriorityLabelIsAppliedSwitcher">0</data>
+        <data key="UseForParentSwitcher">0</data>
+        <data key="StoreMultiSelect">1</data>
+    </entity>
+    <entity name="ProductLabelDisabled" type="product_label" extends="ProductLabelGeneralTabDefault">
+        <data key="StatusSwitcher">0</data>
+    </entity>
+    <entity name="ProductLabelProdCatTabTextOnlyDefault" type="product_label2">
+        <data key="LabelTypeRadiobutton">text</data>
+        <data key="LabelPositionHorSelect">1</data>
+        <data key="LabelPositionVerSelect">1</data>
+        <data key="LabelTextField">Label 1 Text</data>
+        <data key="TextColorField">#10a31a</data>
+        <data key="TextSizeField">10px;</data>
+        <data key="AdvancedSettingsCSSField">text-align: right; line-height: 20px; transform: rotate(10deg);</data>
+    </entity>
+    <entity name="ProductLabelProdCatTabShapeDefault" type="product_label2"
+            extends="ProductLabelProdCatTabTextOnlyDefault">
+        <data key="LabelTypeRadiobutton">shape</data>
+        <data key="ShapeType">tag</data>
+        <data key="LabelColorField">#d60000</data>
+        <data key="LabelSizeField">14</data>
+    </entity>
+    <entity name="ProductLabelProdCatTabUploadImgDefault" type="product_label2"
+            extends="ProductLabelProdCatTabTextOnlyDefault">
+        <data key="LabelTypeRadiobutton">download</data>
+        <data key="LabelFileName">1.jpg</data>
+        <data key="LabelSizeField">14</data>
+    </entity>
+
+    <entity name="ProductTabIdentifier" type="product_label3">
+        <data key="TabIdentifier">Product</data>
+        <data key="Identifier">prod</data>
+    </entity>
+    <entity name="CategoryTabIdentifier" type="product_label3">
+        <data key="TabIdentifier">Category</data>
+        <data key="Identifier">cat</data>
+    </entity>
+
+</entities>

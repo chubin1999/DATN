@@ -1,0 +1,97 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Catalog\Block\Product\View\Details $block */
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) :?>
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items">
+            <?php 
+            $i = 0;
+            foreach ($detailedInfoGroup as $name) :?>
+                <?php               
+                $html = $layout->renderElement($name);
+                // if (!trim($html)) {
+                //     continue;
+                // }
+                $i++;
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="accordion-item <?php if ($i == 1) {echo 'active';} ?> <?=$alias?>">
+                    <div class="data item title"
+                        id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>" data-order="<?php echo $i; ?>">
+                        <a class="data switch"
+                           tabindex="-1"
+                           data-toggle="trigger"
+                           href="#<?= $block->escapeUrl($alias) ?>"
+                           id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title">
+                            <?= /* @noEscape */ $label ?>
+                        </a>
+                    </div>
+                    <div class="data item content tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title" id="<?= $block->escapeHtmlAttr($alias) ?>" style="display: none;">
+                        <?= /* @noEscape */ $html ?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <script>
+        (function  () {
+            require(["jquery"],function($) {
+                $(document).ready(function() {
+                    $('.catalog-product-view .accordion-item.asset_hub').removeClass('active');
+                    $('.catalog-product-view .accordion-item.asset_hub .title .data.switch').attr("href", "https://margifox.imagerelay.com");
+                    $('.catalog-product-view .accordion-item.asset_hub .title .data.switch').click(function() {
+                        window.location.href = 'https://margifox.imagerelay.com';
+                        return false;
+                    });
+                    $('.info.detailed .accordion-item.active .content').slideDown();
+                    $('.info.detailed .accordion-item .title').click(function(e){
+                        e.preventDefault();                     
+                        var parent = $(this).closest('.accordion-item');
+                        if (parent.hasClass('active')){
+                            parent.removeClass('active');
+                            parent.find('.item.content').slideUp();
+                        } else {
+                            $('.info.detailed .accordion-item .item.content').slideUp();
+                            $('.info.detailed .accordion-item').removeClass('active');
+                            parent.addClass('active');
+                            parent.find('.item.content').slideDown();
+                            if ($(window).width() > 1000) {
+                                var details_top = $('.info.detailed .items').position().top - 186;
+                            } else {
+                                var details_top = $('.info.detailed .items').position().top - 121;
+                            }
+                            // var offset_spacing = $(this).attr('data-order') * 59;
+                            // var scroll_to = details_top + offset_spacing;
+                            // setTimeout(function() {
+                            //     $("html, body").animate({ scrollTop: scroll_to }, 300); 
+                            // }, 500);    
+                                
+                        }                       
+                        if ($(window).width() > 991) {
+                            setTimeout(function() {
+                                $window = $(window);
+                                var info_height = $('.catalog-product-view .product-info-main').innerHeight() + 2;
+                                var info_wrap_top = $('.catalog-product-view .column.main').offset().top;
+                                var info_wrap_height = $('.catalog-product-view .column main').innerHeight();
+                                var info_wrap_bottom = info_wrap_top + info_wrap_height - 72;
+                                var check_point = $window.scrollTop() + info_height + 173;
+                                if (check_point >= info_wrap_bottom) {
+                                    $('.catalog-product-view .product-info-main').addClass('absoluted');
+                                } else {
+                                    $('.catalog-product-view .product-info-main').removeClass('absoluted');
+                                } 
+                            }, 500); 
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+<?php endif; ?>

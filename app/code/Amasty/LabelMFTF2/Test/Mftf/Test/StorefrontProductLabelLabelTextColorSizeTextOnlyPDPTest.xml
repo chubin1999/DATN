@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/testSchema.xsd">
+
+    <test name="StorefrontProductLabelLabelTextColorSizeTexOnlyPDPTest" extends="StorefrontProductLabelCreationPDPTest">
+
+        <annotations>
+            <features value="Amasty Product Labels"/>
+            <stories value="Product Label creation and application"/>
+            <title value="Product Label creation and application checking"/>
+            <description
+                    value="Check that Product Label is applied on products on PDP and have defined Text, Size, Color in Text Only Mode"/>
+            <severity value="MAJOR"/>
+            <testCaseId value="PRODLAB-5"/>
+            <group value="Amasty"/>
+            <group value="ProdLab"/>
+            <group value="ProdLabSmoke"/>
+        </annotations>
+
+        <before>
+            <actionGroup ref="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup"
+                         stepKey="createProductLabelProductTab1">
+                <argument name="product_label2" value="ProductLabelProdCatTabTextOnlyDefault"/>
+                <argument name="product_label3" value="ProductTabIdentifier"/>
+            </actionGroup>
+        </before>
+
+        <comment
+                userInput="Navigate to Product Detail Page. Check that Product Label is displayed on Product Detail Page and have defined ext, Size, Color in Text Only Mode"
+                stepKey="testActivitiesComment"/>
+
+        <see userInput="{{ProductLabelProdCatTabTextOnlyDefault.LabelTextField}}"
+             selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+             stepKey="seeProductLabelText1"
+             after="seeProductLabels1"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorPosition('top-left',{$grabCookie1})}}"
+                userInput="1"
+                stepKey="checkProductLabelPosition1"
+                after="seeProductLabelText1"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorStyle({$grabCookie1},ProductLabelProdCatTabTextOnlyDefault.AdvancedSettingsCSSField,ProductLabelProdCatTabTextOnlyDefault.TextSizeField,'rgb(16, 163, 26);')}}"
+                userInput="1"
+                stepKey="checkProductLabelStyle1"
+                after="checkProductLabelPosition1"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorTypeText({$grabCookie1},ProductLabelProdCatTabTextOnlyDefault.LabelTypeRadiobutton,ProductLabelProdCatTabTextOnlyDefault.LabelTextField)}}"
+                userInput="1"
+                stepKey="checkProductLabelTypeAndText1"
+                after="checkProductLabelStyle1"/>
+        <seeInPageSource html="color: rgb(16, 163, 26);"
+                         stepKey="checkProductLabelColor1"
+                         after="checkProductLabelTypeAndText1"/>
+        <see userInput="{{ProductLabelProdCatTabTextOnlyDefault.LabelTextField}}"
+             selector="{{StorefrontProductLabelSection.ProductLabelSelector('prod',{$grabCookie1})}}"
+             stepKey="seeProductLabelText2"
+             after="seeProductLabels2"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorPosition('top-left',{$grabCookie1})}}"
+                userInput="1"
+                stepKey="checkProductLabelPosition2"
+                after="seeProductLabelText2"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorStyle({$grabCookie1},ProductLabelProdCatTabTextOnlyDefault.AdvancedSettingsCSSField,ProductLabelProdCatTabTextOnlyDefault.TextSizeField,'rgb(16, 163, 26);')}}"
+                userInput="1"
+                stepKey="checkProductLabelStyle2"
+                after="checkProductLabelPosition2"/>
+        <seeNumberOfElements
+                selector="{{StorefrontProductLabelSection.ProductLabelSelectorTypeText({$grabCookie1},ProductLabelProdCatTabTextOnlyDefault.LabelTypeRadiobutton,ProductLabelProdCatTabTextOnlyDefault.LabelTextField)}}"
+                userInput="1"
+                stepKey="checkProductLabelTypeAndText2"
+                after="checkProductLabelStyle2"/>
+        <seeInPageSource html="color: rgb(16, 163, 26);"
+                         stepKey="checkProductLabelColor2"
+                         after="checkProductLabelTypeAndText2"/>
+
+    </test>
+</tests>
+

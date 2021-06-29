@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:DataGenerator/etc/dataProfileSchema.xsd">
+
+    <entity name="TestConfProductA1" type="LblsTestConfProduct">
+        <data key="name">Test Conf Product A1</data>
+        <data key="sku" unique="suffix">Sku</data>
+        <data key="type_id">configurable</data>
+        <data key="attribute_set_id">4</data>
+        <data key="visibility">4</data>
+        <data key="price">0</data>
+        <data key="weight">2</data>
+        <data key="status">1</data>
+        <requiredEntity type="product_extension_attribute">StockStatusAndPosition</requiredEntity>
+    </entity>
+
+    <entity name="StockStatusAndPosition" type="product_extension_attribute">
+        <requiredEntity type="stock_item">Qty_100</requiredEntity>
+        <requiredEntity type="category_links">Prod_Pos</requiredEntity>
+    </entity>
+
+    <entity name="Qty_100" type="stock_item">
+        <data key="qty">100</data>
+        <data key="is_in_stock">true</data>
+    </entity>
+
+    <entity name="Prod_Pos" type="category_links">
+        <data key="position">2</data>
+        <var key="category_id" entityType="LblsTestCategory" entityKey="id"/>
+    </entity>
+
+    <entity name="ConfProdA1AddChildSimProd" type="LblsTestConfProductChild">
+        <var key="sku" entityKey="sku" entityType="LblsTestConfProduct"/>
+        <var key="childSku" entityKey="sku" entityType="LblsTestProduct"/>
+    </entity>
+
+</entities>

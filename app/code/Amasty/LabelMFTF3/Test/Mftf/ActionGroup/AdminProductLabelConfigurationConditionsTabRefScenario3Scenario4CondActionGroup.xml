@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationConditionsTabRefScenario3Scenario4CondActionGroup"
+                 extends="AdminProductLabelConfigurationConditionsTabRefScenario1Scenario2CondActionGroup">
+        <click selector="{{AdminNewCatalogPriceRuleConditions.newCondition}}"
+               stepKey="addNewCondition2"
+               after="selectAttributeOption1"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.conditionSelect('1')}}"
+                      userInput="$createConfigProductAttribute2.default_frontend_label$"
+                      stepKey="selectTypeCondition2"
+                      after="addNewCondition2"/>
+        <click selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsis('2')}}"
+               stepKey="clickEllipsis2"
+               after="selectTypeCondition2"/>
+        <selectOption selector="{{AdminNewCatalogPriceRuleConditions.targetEllipsisSelect('1','2')}}"
+                      userInput="$getConfigAttributeOption3.value$"
+                      stepKey="fillAttributeOption2"
+                      after="clickEllipsis2"/>
+    </actionGroup>
+
+</actionGroups>

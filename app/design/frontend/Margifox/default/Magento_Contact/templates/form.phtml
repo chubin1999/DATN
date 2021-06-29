@@ -1,0 +1,148 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+// phpcs:disable Generic.Files.LineLength.TooLong
+
+/** @var \Magento\Contact\Block\ContactForm $block */
+/** @var \Magento\Contact\ViewModel\UserDataProvider $viewModel */
+
+$viewModel = $block->getViewModel();
+
+$helper_customer = $this->helper('Margifox\Customer\Helper\Data');
+
+$firstname = '';
+
+$lastname = '';
+
+if($helper_customer->getLogin()) {
+
+  $firstname = $helper_customer->getCustomerSession()->getFirstname();
+
+  $lastname = $helper_customer->getCustomerSession()->getLastname();
+
+}
+
+?>
+
+<div class="content-left">
+  <form class="form contact"
+        action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+        id="contact-form"
+        method="post"
+        data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+        data-mage-init='{"validation":{}}'>
+      <fieldset class="fieldset">
+          <div class="field email required">
+              <div class="control">
+                  <input name="email"
+                         id="email"
+                         title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                         value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                         class="input-text"
+                         type="email"
+                         data-validate="{required:true, 'validate-email':true}"
+                         placeholder=" "/>
+                  <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+              </div>
+          </div>
+<!-- custom -->
+
+          <div class="field company">
+              <div class="control">
+                  <input name="company"
+                         id="company"
+                         title="<?= $block->escapeHtmlAttr(__('Company')) ?>"
+                         class="input-text"
+                         type="text" 
+                         placeholder=" "/>
+                  <label class="label" for="company"><span><?= $block->escapeHtml(__('Company')) ?></span></label>
+              </div>
+          </div>
+          
+          <div class="customer-name">
+            
+            <div class="field firstname">
+                <div class="control">
+                    <input name="firstname"
+                           id="firstname"
+                           title="<?= $block->escapeHtmlAttr(__('Firstname')) ?>"
+                           value="<?= $firstname ?>"
+                           class="input-text"
+                           type="text"
+                           placeholder=" "/>
+                    <label class="label" for="firstname"><span><?= $block->escapeHtml(__('First name')) ?></span></label>
+                </div>
+            </div>
+
+            <div class="field lastname">
+                <div class="control">
+                    <input name="lastname"
+                           id="lastname"
+                           title="<?= $block->escapeHtmlAttr(__('Lastname')) ?>"
+                           value="<?= $lastname ?>"
+                           class="input-text"
+                           type="text"
+                           placeholder=" "/>
+                    <label class="label" for="lastname"><span><?= $block->escapeHtml(__('Last name')) ?></span></label>
+                </div>
+            </div>
+
+          </div>
+<!-- end custom -->
+
+          <div class="field comment required">
+              <div class="control">
+                  <textarea name="comment" 
+                   id="comment"
+                   title="<?= $block->escapeHtmlAttr(__('Message')) ?>"
+                   class="input-text"
+                   cols="5"
+                   rows="3"
+                   placeholder=" "
+                   data-validate="{required:true}"><?= $block->escapeHtml($viewModel->getUserComment()) ?></textarea>
+                <label class="label" for="comment"><?= $block->escapeHtml(__('Message')) ?></label>
+              </div>
+          </div>
+          <?= $block->getChildHtml('form.additional.info') ?>
+      </fieldset>
+      <?php
+        echo $this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId('content_left_contact')
+        ->toHtml();
+      ?>
+      <div class="actions-toolbar">
+          <div class="primary">
+              <input type="hidden" name="hideit" id="hideit" value="" />
+              <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                  <span><?= $block->escapeHtml(__('Submit')) ?></span>
+              </button>
+          </div>
+      </div>
+  </form>
+</div>
+<div class="content-right">
+  <?php
+    echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('content_right_contact')
+    ->toHtml();
+  ?>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "contact-form"
+            }
+        }
+    }
+</script>
+
+<div class="google-map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7146.397293747849!2d153.0431025!3d-26.4170654!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9368c94c460773%3A0x5446a7b152d9c3ac!2sMargifox%20Distributors!5e0!3m2!1sen!2s!4v1611210902418!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>

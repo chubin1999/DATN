@@ -1,0 +1,10 @@
+<!-- ko if: isAvailable() -->
+<tr class="totals rewardpoints">
+    <th class="mark" scope="row">
+        <!-- ko text: $t(title)--><!-- /ko -->
+    </th>
+    <td class="amount">
+        <span data-bind="text: getValue(), attr: {'data-th': $t(title)}" class="price"></span>
+    </td>
+</tr>
+<!-- /ko -->

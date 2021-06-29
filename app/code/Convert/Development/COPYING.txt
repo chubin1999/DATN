@@ -1,0 +1,4 @@
+Copyright © 2020-present CONVERT DIGITAL PTY LTD
+
+Each Magento source file included in this distribution is licensed under GNU GENERAL PUBLIC LICENSE 3.0
+Please see LICENSE.txt for the full text of the GNU GENERAL PUBLIC LICENSE 3.0 license.

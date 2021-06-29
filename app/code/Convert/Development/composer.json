@@ -1,0 +1,25 @@
+{
+  "name": "convertdigital/m2-development",
+  "description": "Project development tools",
+  "type": "magento2-module",
+  "license": "GPLv3",
+  "authors": [
+    {
+      "name": "Convert Digital",
+      "email": "dev@convertdigital.com.au"
+    }
+  ],
+  "require": {
+    "php": "~7.4.0",
+    "magento/framework": "103.0.*",
+    "magento/module-two-factor-auth": "1.0.*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Convert\\Development\\": ""
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var Magento\NegotiableQuote\Block\Order\Info\CreationInfo $block
+ */
+$helper = $this->helper('Margifox\OrderHistory\Helper\Data');
+?>
+
+<?php if($helper->getOrder()) :?>
+    <?php 
+        $order = $helper->getOrder();
+        $customer_lastname = $order->getData('customer_lastname');
+        $customer_firstname = $order->getData('customer_firstname');
+        $created_at = $order->getData('created_at');
+        $newDate = date("F j, Y", strtotime($created_at));
+    ?>
+
+    <div class="order-date">
+        <strong><?= $block->escapeHtml(__('Created')) ?>: </strong>
+        <?=$newDate; ?>
+    </div>
+    
+<?php endif;?>

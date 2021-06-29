@@ -1,0 +1,81 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Blog
+ */
+?>
+<?php
+/** @var \Amasty\Blog\Block\Layout\AuthorInfo $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$author = $block->getAuthorData();
+?>
+
+<?php if ($author): ?>
+    <?php $isAnySocial = $author->getTwitterProfile() || $author->getFacebookProfile() || $author->getLinkedinProfile() ?>
+    <div id="amblog_sidebar_author" class="amblog-author-info" data-amblog-js="accordion">
+        <div class="amblog-title mobile" data-amblog-js="heading">
+            <?= $escaper->escapeHtml(__('About author')); ?>
+        </div>
+        <div class="amblog-content" data-amblog-js="content">
+            <div class="amblog-image-wrapper <?= $author->getImage() ? '' : '-placeholder' ?>">
+                <?php if ($author->getImage()): ?>
+                    <figure class="amblog-image"
+                          style="background-image: url(<?= $escaper->escapeUrl($author->getImage()); ?>)"></figure>
+                <?php endif; ?>
+            </div>
+            <h3 class="amblog-name"><?= $escaper->escapeHtml($author->getName()); ?></h3>
+
+            <?php if ($author->getJobTitle()): ?>
+                <h4 class="amblog-job"><?= $escaper->escapeHtml($author->getJobTitle()); ?></h4>
+            <?php endif; ?>
+
+            <?php if ($author->getShortDescription()): ?>
+                <p class="amblog-description"><?= $escaper->escapeHtml($author->getShortDescription()); ?></p>
+            <?php endif; ?>
+
+            <?php if ($isAnySocial): ?>
+                <ul class="amblog-list amblog-social-container">
+                    <?php if ($author->getTwitterProfile()): ?>
+                        <li class="amblog-icon -twitter">
+                            <a class="amblog-social"
+                               target="_blank"
+                               href="<?= $escaper->escapeUrl($author->getTwitterProfile()); ?>"
+                               title="<?= $escaper->escapeHtmlAttr(__('Twitter')); ?>">
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($author->getFacebookProfile()): ?>
+                        <li class="amblog-icon -facebook">
+                            <a class="amblog-social"
+                               target="_blank"
+                               href="<?= $escaper->escapeUrl($author->getFacebookProfile()); ?>"
+                               title="<?= $escaper->escapeHtmlAttr(__('Facebook')); ?>">
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($author->getLinkedinProfile()): ?>
+                        <li class="amblog-icon -linkedin">
+                            <a class="amblog-social"
+                               target="_blank"
+                               href="<?= $escaper->escapeUrl($author->getLinkedinProfile()); ?>"
+                               title="<?= $escaper->escapeHtmlAttr(__('LinkedIn')); ?>">
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org/",
+            "@type": "Person",
+            "name": "<?= $escaper->escapeHtml($author->getName()); ?>",
+            "description": "<?= $escaper->escapeHtml($author->getShortDescription()); ?>",
+            "image": "<?= $escaper->escapeUrl($author->getImage()); ?>"
+        }
+    </script>
+<?php endif; ?>

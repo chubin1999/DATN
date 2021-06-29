@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationProdCatTabUploadImageActionGroup"
+                 extends="AdminProductLabelConfigurationProdCatTabTextOnlyActionGroup">
+        <arguments>
+            <argument name="product_label2"/>
+            <argument name="product_label3"/>
+        </arguments>
+        <attachFile userInput="{{product_label2.LabelFileName}}"
+                    selector="{{AdminProductLabelProfileSection.UploadImageButton(product_label3.Identifier)}}"
+                    stepKey="uploadLabelImage1"
+                    after="clickOnLabelType1"/>
+        <fillField selector="{{AdminProductLabelProfileSection.LabelSizeField(product_label3.Identifier)}}"
+                   userInput="{{product_label2.LabelSizeField}}"
+                   stepKey="setLabelSize1"
+                   after="uploadLabelImage1"/>
+    </actionGroup>
+
+</actionGroups>

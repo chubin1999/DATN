@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF2
+ */
+-->
+<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/sectionSchema.xsd">
+
+    <section name="StorefrontProductLabelSection">
+        <element name="ProductLabelSelector" type="block"
+                 selector="//div[contains(@class,'amlabel')][contains(@class,'{{var1}}')]/div[contains(@class,'{{var2}}')]"
+                 parameterized="true"/>
+        <element name="ProductLabelSelectorPosition" type="block"
+                 selector="//div[contains(@class,'amlabel-position-{{var1}}')]/div[contains(@class,'{{var2}}')]"
+                 parameterized="true"/>
+        <element name="ProductLabelSelectorStyle" type="block"
+                 selector="//div[contains(@class,'amlabel')]/div[contains(@class,'{{var1}}')][contains(@style,'{{var2}}')][contains(@style,' font-size: {{var3}}')][contains(@style,' color: {{var4}}')]"
+                 parameterized="true"/>
+        <element name="ProductLabelSelectorTypeText" type="block"
+                 selector="//div[contains(@class,'amlabel')]/div[contains(@class,'{{var1}}')]/div[contains(@class,'{{var2}}')][contains(text(),'{{var3}}')]"
+                 parameterized="true"/>
+
+        <element name="ProductLabelSelectorImage" type="block"
+                 selector="//div[contains(@class,'amlabel')]/div[contains(@class,'{{var1}}')]/img[contains(@src,'{{var2}}' )][contains(@src,'{{var3}}' )]"
+                 parameterized="true"/>
+        <element name="ProductLabelSelectorImage2" type="block"
+                 selector="//div[contains(@class,'amlabel')]/div[contains(@class,'{{var1}}')]/img[contains(@src,'{{var2}}') or contains(@src,'{{var3}}')]"
+                 parameterized="true"/>
+        <element name="ProductLabelSelectorImage3" type="block"
+                 selector="//div[contains(@class,'amlabel')][contains(@style,'{{var2}}') or contains(@style,'{{var3}}') or contains(@style,'{{var4}}') or contains(@style,'{{var5}}')][contains(@style,'{{var6}}') or contains(@style,'{{var7}}') or contains(@style,'{{var8}}') or contains(@style,'{{var9}}')]/div[contains(@class,'{{var1}}')]"
+                 parameterized="true"/>
+
+    </section>
+</sections>

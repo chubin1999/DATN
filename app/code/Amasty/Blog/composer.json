@@ -1,0 +1,28 @@
+{
+    "name": "amasty/blog",
+    "description": "Amasty Blog Pro",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/base": ">=1.11.1",
+        "amasty/cron-schedule-list": ">=1.0.5",
+        "magento/framework": ">=102.0.0"
+    },
+    "suggest": {
+        "amasty/blog-page-builder": "Install blog-page-builder module to activate PageBuilder and Blog Pro integration.",
+        "amasty/blog-graphql": "Install blog-graphql module to activate Graphql and Blog Pro integration.",
+        "amasty/module-blog-mftf-3": "Install module-blog-mftf-3 module to be able to run Blog Pro MFTF tests for Magento 2.4.0+ version."
+    },
+    "type": "magento2-module",
+    "version": "2.6.0",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\Blog\\": ""
+        }
+    }
+}

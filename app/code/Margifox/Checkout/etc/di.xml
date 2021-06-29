@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2019 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\DefaultConfigProvider">
+        <plugin name="addAttrbuteForCheckoutPage" type="Margifox\Checkout\Plugin\Model\DefaultConfigProvider"/>
+    </type>
+    <type name="Margifox\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="map" xsi:type="array">
+                <item name="brand" xsi:type="array">
+                    <item name="title" xsi:type="string">Brand</item>
+                    <item name="object" xsi:type="string">Margifox\Checkout\Model\Attribute\Dropdown</item>
+                </item>
+				<item name="size" xsi:type="array">
+                    <item name="title" xsi:type="string">Size</item>
+                    <item name="object" xsi:type="string">Margifox\Checkout\Model\Attribute\Dropdown</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

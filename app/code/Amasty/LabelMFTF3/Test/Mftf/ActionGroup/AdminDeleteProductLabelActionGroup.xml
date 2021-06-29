@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminDeleteProductLabelActionGroup">
+        <grabCookie userInput="setProductLabelIDInCookie" stepKey="grabCookie1"/>
+        <amOnPage url="{{AdminProductLabelProfilePage.url(edit/id/{$grabCookie1})}}"
+                  stepKey="navigateToProductLabelProfilePage2"/>
+        <waitForAjaxLoad stepKey="waitForAjaxLoad2"/>
+        <waitForElement selector="{{AdminProductLabelProfileSection.DeleteButton}}" stepKey="waitForElement3"/>
+        <click selector="{{AdminProductLabelProfileSection.DeleteButton}}" stepKey="clickOnDeleteButton1"/>
+        <waitForElement selector="{{AdminProductLabelProfileSection.OkButton('9')}}" stepKey="waitForElement4"/>
+        <wait time="2" stepKey="wait1"/>
+        <pressKey selector="{{AdminProductLabelProfileSection.OkButton('9')}}"
+                  parameterArray="[\Facebook\WebDriver\WebDriverKeys::ENTER]"
+                  stepKey="pressEnter"/>
+        <waitForPageLoad time="25" stepKey="waitForPageLoad1"/>
+        <see userInput="You deleted the label." selector="{{AdminOrderDetailsMessagesSection.successMessage}}"
+             stepKey="seeSuccessMessage"/>
+    </actionGroup>
+
+</actionGroups>

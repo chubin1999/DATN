@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">loyalty_redeeming_history_listing.loyalty_redeeming_history_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>loyalty_redeeming_history_listing_columns</spinner>
+        <deps>
+            <dep>loyalty_redeeming_history_listing.loyalty_redeeming_history_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="loyalty_redeeming_history_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <filterUrlParams>
+                <param name="company_id">*</param>
+            </filterUrlParams>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Magento_Company::index</aclResource>
+        <dataProvider class="Margifox\BrandRewardUi\Ui\Component\Loyalty\History\RedeemingDataProvider" name="loyalty_redeeming_history_listing_data_source">
+            <settings>
+                <requestFieldName>company_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>false</sticky>
+        </settings>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="loyalty_redeeming_history_listing_columns">
+        <column name="entity_id">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Id</label>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+            <settings>
+                <dateFormat>L</dateFormat>
+                <dataType>date</dataType>
+                <label translate="true">Created</label>
+                <sortable>false</sortable>
+            </settings>
+        </column>
+        <column name="brand">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Brand</label>
+            </settings>
+        </column>
+        <column name="amount_redeemed">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Points Redeemed</label>
+            </settings>
+        </column>
+        <column name="amount_redeemed_dollar">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Points Redeemed ($)</label>
+            </settings>
+        </column>
+        <column name="order_number">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Order</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

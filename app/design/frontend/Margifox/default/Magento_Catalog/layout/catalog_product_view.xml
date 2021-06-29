@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="product-info-wrap" as="product-info-wrap" label="Product info wrap" htmlTag="div" htmlClass="product-info-wrap" before="-">
+
+            </container>
+            <container name="product-info-detail" as="product-info-detail" label="Product info detail" htmlTag="div" htmlClass="product-info-detail" after="-">
+
+            </container>
+            <container name="product-info-wrap-top" as="product-info-wrap-top" label="Product info wrap top" htmlTag="div" htmlClass="product-info-wrap-top" after="-"/>
+            <container name="product-related-wrap" as="product-related-wrap" label="Product related wrap" htmlTag="div" htmlClass="product-related-wrap" after="product-info-wrap">
+
+            </container>
+        </referenceContainer>
+
+
+        <referenceContainer name="product.info.main">
+            <container name="product.info.custom" htmlTag="div" htmlClass="product-info-custom" before="-">
+                <block class="Magento\Catalog\Block\Product\View" name="product.info.all.custom" cacheable="false" template="Magento_Catalog::product/view/top.phtml" />
+            </container>
+
+            <block class="Magento\Catalog\Block\Product\View\Details" name="product.info.details.cms" cacheable="false" template="Magento_Catalog::product/view/details.phtml" after="-">
+                <block class="Magento\Catalog\Block\Product\View\Description" name="description_cms" cacheable="false" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getDescription</argument>
+                        <argument name="at_code" xsi:type="string">description</argument>
+                        <argument name="css_class" xsi:type="string">description</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Description</argument>
+                        <argument name="sort_order" xsi:type="string">10</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="ingredients" cacheable="false" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getIngredients</argument>
+                        <argument name="at_code" xsi:type="string">ingredients</argument>
+                        <argument name="css_class" xsi:type="string">ingredients</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Ingredients</argument>
+                        <argument name="sort_order" xsi:type="string">15</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Catalog\Block\Product\View\Description" name="how_to_use" cacheable="false" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getHowToUse</argument>
+                        <argument name="at_code" xsi:type="string">how_to_use</argument>
+                        <argument name="css_class" xsi:type="string">how_to_use</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">How to use</argument>
+                        <argument name="sort_order" xsi:type="string">20</argument>
+                    </arguments>
+                </block>
+          <!--       <block class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" as="additional" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+                    <arguments>
+                        <argument translate="true" name="title" xsi:type="string">Additional Information</argument>
+                        <argument name="sort_order" xsi:type="string">25</argument>
+                    </arguments>
+                </block> -->
+                <block class="Magento\Catalog\Block\Product\View\Description" name="additional_information_" cacheable="false" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getAdditionalInformation</argument>
+                        <argument name="at_code" xsi:type="string">additional_information</argument>
+                        <argument name="css_class" xsi:type="string">additional_information</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Additional Information</argument>
+                        <argument name="sort_order" xsi:type="string">20</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Catalog\Block\Product\View\Description" name="asset_hub" cacheable="false" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getAssetHub</argument>
+                        <argument name="at_code" xsi:type="string">asset_hub</argument>
+                        <argument name="css_class" xsi:type="string">asset_hub</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Image Relay</argument>
+                        <argument name="sort_order" xsi:type="string">25</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.form.content">
+            <block class="Magento\ProductAlert\Block\Product\View\Stock" name="productalert.stock.custom" as="productalert_stock_custom" template="Magento_ProductAlert::product/view.phtml" after="-">
+                <action method="setHtmlClass">
+                    <argument name="value" xsi:type="string">stock alert-out-stock</argument>
+                </action>
+                <action method="setSignupLabel">
+                    <argument translate="true" name="value" xsi:type="string">Notify me when back in stock</argument>
+                </action>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true"/>
+        <referenceBlock name="product.info.description" remove="true"/>
+        <referenceBlock name="product.info.overview" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="reviews.tab" remove="true"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+        <referenceBlock name="product.info.details" remove="true"/>
+        <referenceBlock name="productalert.stock" remove="true"/>
+        <!-- <move element="product.info.details.cms" destination="product-info-detail" before="-" /> -->
+
+        <move element="product.info.main" destination="product-info-wrap" after="product.info.media" />
+        <move element="product.info.media" destination="product-info-wrap" after="breadcrumbs" />
+        <move element="product-info-detail" destination="product-info-wrap" after="-" />
+        <move element="product.info.details.cms" destination="product-info-detail" before="-" />
+        <move element="product-info-wrap-top" destination="product-info-wrap" after="-" />
+
+        <!-- <move element="product-info-main" destination="product-info-custom" before="-" /> -->
+        <move element="product.info.media" destination="product-info-wrap-top" after="-" />
+        <move element="breadcrumbs" destination="product-info-wrap-top" before="-"/>
+        <move element="catalog.product.related" destination="product-info-wrap" after="-" />
+    </body>
+</page>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Margifox\BrandReward\Api\Data\CompanyBrandSpendingLevelInterface" type="Margifox\BrandReward\Model\CompanyBrandSpendingLevel"/>
+    <preference for="Margifox\BrandReward\Api\Data\CompanyBrandSpendingLevelSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Margifox\BrandReward\Api\CompanyBrandSpendingLevelRepositoryInterface" type="Margifox\BrandReward\Repository\CompanyBrandSpendingLevel"/>
+
+    <preference for="Margifox\BrandReward\Api\Data\CompanyBrandSpendingHistoryInterface" type="Margifox\BrandReward\Model\CompanyBrandSpendingHistory"/>
+    <preference for="Margifox\BrandReward\Api\Data\CompanyBrandSpendingHistorySearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Margifox\BrandReward\Api\CompanyBrandSpendingHistoryRepositoryInterface" type="Margifox\BrandReward\Repository\CompanyBrandSpendingHistory"/>
+
+    <preference for="Margifox\BrandReward\Api\BrandRewardManagementInterface" type="Margifox\BrandReward\Model\BrandRewardManagement"/>
+
+    <preference for="Magento\Reward\Block\Adminhtml\Reward\Rate\Edit\Form" type="Margifox\BrandReward\Model\Adminhtml\Reward\Rate\Edit\Form"/>
+    <preference for="Magento\Reward\Controller\Adminhtml\Reward\Rate\Validate" type="Margifox\BrandReward\Controller\Adminhtml\Reward\Rate\Validate"/>
+    <preference for="Magento\Reward\Model\Reward\Rate" type="Margifox\BrandReward\Model\Reward\Rate"/>
+    <preference for="Magento\Reward\Model\ResourceModel\Reward\Rate" type="Margifox\BrandReward\Model\ResourceModel\Reward\Rate"/>
+
+    <!-- TODO: disable functionality for Reward Points in different way -->
+    <!-- It disables Reward Points block on checkout page -->
+    <preference for="Magento\Reward\Model\ConfigProvider" type="Margifox\BrandReward\Model\MagentoReward\ConfigProvider"/>
+    <preference for="Magento\Reward\Model\Total\Quote\Reward" type="Margifox\BrandReward\Model\MagentoReward\Total\Reward"/>
+
+</config>

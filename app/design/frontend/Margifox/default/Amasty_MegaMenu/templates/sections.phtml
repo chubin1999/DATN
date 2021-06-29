@@ -1,0 +1,152 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_MegaMenu
+ */
+?>
+<?php
+
+/**
+ * General template for displaying group of blocks devided into sections
+ */
+
+/** @var  \Magento\Framework\View\Element\Template $block */
+$group = $block->getGroupName();
+$groupCss = $block->getGroupCss();
+$groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"tabs":{"openedState":"active"}}';
+$isHamburger = $block->getHelperBlock()->isHamburgerEnabled();
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames($group, 'getChildHtml')): ?>
+    <div class="ammenu-nav-sections nav-sections<?= $block->escapeHtml($isHamburger ? ' -hamburger' : '') ?>"
+         data-mage-init='{"amastyMenuOpenType":{
+            "openType": "<?= $block->escapeHtml($block->getHelperBlock()->getMobileTemplateClass()) ?>",
+            "hamburgerStatus": "<?= (int)$isHamburger ?>"
+            }}'
+         data-ammenu-js='nav-sections'>
+        <?php $layout = $block->getLayout(); ?>
+        <div class="ammenu-tabs-container"
+             data-ammenu-js="tabs-container"
+             data-mage-init='<?= $block->escapeHtml($groupBehavior); ?>'>
+            <?php foreach ($detailedInfoGroup as $name): ?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html) && ($block->getUseForce() != true)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <?php if (!$isHamburger): ?>
+                    
+                    <?php if($alias == 'store.links'): ?>
+
+                        <div class="ammenu-title login" data-role="collapsible">
+                            <a class="ammenu-link"
+                               title="<?= $block->escapeHtml($label) ?>"
+                               data-toggle="switch"
+                               href="#<?= $block->escapeUrl($alias) ?>">
+                                <?= __('Account') ?>
+                            </a>
+                        </div>
+
+                        <div class="ammenu-title logout" data-role="collapsible">
+                            <a class="ammenu-link"
+                               title="<?= $block->escapeHtml($label) ?>"
+                               data-toggle="switch"
+                               href="#<?= $block->escapeUrl($alias) ?>">
+                                <?= __('Sign In / Join') ?>
+                            </a>
+                        </div>
+                    <?php else : ?>
+
+                        <div class="ammenu-title" data-role="collapsible">
+                            <a class="ammenu-link"
+                               title="<?= $block->escapeHtml($label) ?>"
+                               data-toggle="switch"
+                               href="#<?= $block->escapeUrl($alias) ?>">
+                                <?= $block->escapeHtml($label) ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if($alias == 'store.links'): ?>
+                        <div class="ammenu-content" id="<?= $block->escapeHtml($alias) ?>" data-role="content">
+                            <?= /* @noEscape*/ $html ?>
+                            <div class="outlogg" style="display: none;">
+                                <div class="sign-in">
+                                    <a class="customer-login-link" href="#">Log in</a>
+                                </div>
+                                <div class="register">
+                                    <a href="<?php echo $this->getUrl('become-a-stockist') ?>">Register</a>
+                                </div>
+                                <div class="live-chat">
+                                    <div class="livechat">
+                                        <span><img src='<?php echo $this->getViewFileUrl('images/chatt.png'); ?>' alt="Demo"></span>
+                                        <a id="click-to-chat__cta--text" onclick="window.HubSpotConversations.widget.open();" class="black-link">Live chat</a>
+                                    </div>
+                                    <div class="contact">
+                                        <a href="/contact">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="inlogg" style="display: none;">
+                                <div class="backwhite">
+                                    <div class="acc dashboard">
+                                        <a href="/customer/account">Account Dashboard</a>
+                                    </div>
+                                    <div class="acc order">
+                                        <a href="/sales/order/history/">My Orders</a>
+                                    </div>
+                                    <div class="acc order">
+                                        <a href="#">Track Order</a>
+                                    </div>
+                                    <div class="acc order">
+                                        <a href="/quickorder/">Express Order</a>
+                                    </div>
+                                    <div class="acc add">
+                                        <a href="/brand_reward/customer/loyalty/">Loyalty Rewards</a>
+                                    </div>
+                                    <div class="acc track">
+                                        <a href="/brand_reward/customer/promo/">Promotional Allocation </a>
+                                    </div>
+                                    <div class="acc loggout">
+                                        <a href="<?php echo $this->getUrl('customer/account/logout') ?>">Logout</a>
+                                    </div>
+                                </div>
+                                <div class="live-chat">
+                                    <div class="livechat">
+                                        <span><img src='<?php echo $this->getViewFileUrl('images/chatt.png'); ?>' alt="Demo"></span>
+                                        <a id="click-to-chat__cta--text" onclick="window.HubSpotConversations.widget.open();" class="black-link">Live chat</a>
+                                    </div>
+                                    <div class="asset">
+                                        <a href="#">Asset Hub</a>
+                                    </div>
+                                    <div class="contact">
+                                        <a href="/contact">Contact</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php else : ?>
+                            <div class="ammenu-content" id="<?= $block->escapeHtml($alias) ?>" data-role="content">
+                                <?= /* @noEscape*/ $html ?>
+                            </div>
+                    <?php endif; ?>
+
+                <?php endif; ?>
+
+                <?php if ($isHamburger): ?>
+                    <div id="<?= $block->escapeHtml($alias) ?>" >
+                        <?= /* @noEscape */ $html ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <div class="ammenu-menu-overlay" data-ammenu-js="menu-overlay">
+        <a class="ammenu-close" href="#"><?= $block->escapeHtml(' ') ?>
+            <img src='<?php echo $this->getViewFileUrl('images/close-icon@2x.png'); ?>' alt="Demo">
+        </a> 
+    </div>
+<?php endif; ?>
